@@ -1,0 +1,15 @@
+{
+  "name": "site-erika-psychologue",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site dynamique de présentation et prise de rendez-vous",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "better-sqlite3": "^11.8.1",
+    "helmet": "^8.0.0"
+  }
+}
