@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Articles et ressources d’Erika Casa autour de la psychologie du travail, du burnout, de la réorientation et de l’autisme.">
+  <title>Articles & ressources | Erika Casa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <img src="assets/logo-psychologie-transparent.png" alt="" class="brand-logo">
+      <span class="brand-copy">
+        <strong>Erika Casa</strong>
+        <small>Psychologue du travail</small>
+      </span>
+    </a>
+
+    <button class="menu-button" id="menuButton" aria-label="Ouvrir le menu">☰</button>
+
+    <nav class="nav" id="nav">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#accompagnements">Accompagnements</a>
+      <a href="index.html#apropos">À propos</a>
+      <a href="articles.html" aria-current="page">Articles</a>
+      <a class="nav-cta" href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="articles-hero">
+      <p class="eyebrow">Articles & ressources</p>
+      <h1>Comprendre, s’informer et ouvrir la réflexion.</h1>
+      <p>
+        Retrouvez ici les publications d’Erika Casa autour de la psychologie du travail,
+        du burnout, de la réorientation professionnelle, de l’autisme et de l’inclusion.
+      </p>
+    </section>
+
+    <section class="section articles-library">
+      <div class="simple-article-list articles-page-list" id="dynamicArticlesPage"></div>
+
+      <div class="simple-article-list articles-page-list">
+        <a class="simple-article-link" href="articles/diagnostic-autisme-adulte.html">
+          <div>
+            <p class="article-meta">Autisme · Diagnostic adulte · Accompagnement</p>
+            <span>Un diagnostic, pas une définition</span>
+          </div>
+          <span class="simple-arrow">→</span>
+        </a>
+        <a class="simple-article-link" href="articles/autisme.html">
+          <div>
+            <p class="article-meta">Autisme · Inclusion</p>
+            <span>Autisme : comprendre, respecter et favoriser l’inclusion</span>
+          </div>
+          <span class="simple-arrow">→</span>
+        </a>
+        <a class="simple-article-link" href="articles/burnout.html">
+          <div>
+            <p class="article-meta">Psychologie du travail</p>
+            <span>Burnout : reconnaître les signes d’épuisement</span>
+          </div>
+          <span class="simple-arrow">→</span>
+        </a>
+        <a class="simple-article-link" href="articles/reorientation.html">
+          <div>
+            <p class="article-meta">Parcours professionnel</p>
+            <span>Faire le point sur son avenir professionnel</span>
+          </div>
+          <span class="simple-arrow">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">
+      <img src="assets/logo-psychologie-transparent.png" alt="">
+      <div>
+        <strong>Erika Casa</strong>
+        <p>Psychologue du travail · Manage</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="articles.html">Articles</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script src="articles.js"></script>
+</body>
+</html>

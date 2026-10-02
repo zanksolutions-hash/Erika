@@ -48,3 +48,17 @@ Cela permet de tester tout le parcours sans commit GitHub :
 Pour que la cliente puisse publier réellement pour tous les visiteurs sans commit GitHub,
 il faudra brancher l'interface à une base de données et un stockage d'images en ligne
 (par exemple Supabase) avec authentification administrateur.
+
+
+## Nouvelle structure Articles
+
+- `index.html` : accueil avec uniquement un aperçu des articles.
+- `articles.html` : page dédiée contenant tous les articles.
+- `articles/*.html` : articles statiques complets.
+- `article-dynamique.html` : article créé via l'administration.
+- `admin.html` : création et gestion des nouveaux articles.
+
+Les nouveaux articles créés depuis l'administration :
+1. apparaissent dans `articles.html`;
+2. les trois plus récents remontent automatiquement sur l'accueil;
+3. s'ouvrent sur une page article séparée.
