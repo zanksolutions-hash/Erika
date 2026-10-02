@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administration des articles | Erika Casa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <div>
+      <p class="eyebrow">Administration</p>
+      <h1>Créer un article</h1>
+      <p>Remplissez les champs puis publiez. L'article sera automatiquement mis en forme.</p>
+    </div>
+    <a class="button secondary" href="articles.html">Voir les articles</a>
+  </header>
+
+  <main class="admin-layout">
+    <section class="admin-panel">
+      <form id="articleForm" class="article-form">
+        <input type="hidden" id="articleId">
+
+        <div class="form-row two-columns">
+          <label>
+            Titre *
+            <input id="title" type="text" required placeholder="Ex. Comprendre le burnout">
+          </label>
+
+          <label>
+            Date *
+            <input id="date" type="date" required>
+          </label>
+        </div>
+
+        <div class="form-row two-columns">
+          <label>
+            Catégorie *
+            <input id="category" type="text" required placeholder="Psychologie du travail">
+          </label>
+
+          <label>
+            Temps de lecture
+            <input id="readingTime" type="text" placeholder="3 min de lecture">
+          </label>
+        </div>
+
+        <label>
+          Résumé / chapeau *
+          <textarea id="excerpt" rows="3" required placeholder="Court texte affiché dans la vignette et sous le titre."></textarea>
+        </label>
+
+        <label>
+          Photo
+          <input id="image" type="file" accept="image/*">
+          <small>L'image est automatiquement redimensionnée pour la démonstration.</small>
+        </label>
+
+        <div id="imagePreview" class="admin-image-preview" hidden></div>
+
+        <label>
+          Texte de l'article *
+          <textarea id="body" rows="14" required placeholder="Écrivez le texte ici.
+
+Séparez les paragraphes par une ligne vide.
+
+Pour créer un intertitre, écrivez :
+## Mon intertitre"></textarea>
+        </label>
+
+        <div class="form-row two-columns">
+          <label>
+            Nom de la source
+            <input id="sourceLabel" type="text" placeholder="Ex. SPF Santé, YouTube, publication Facebook">
+          </label>
+
+          <label>
+            Lien de la source
+            <input id="sourceUrl" type="url" placeholder="https://...">
+          </label>
+        </div>
+
+        <label>
+          Texte alternatif de l'image
+          <input id="imageAlt" type="text" placeholder="Description courte de l'image">
+        </label>
+
+        <div class="admin-actions">
+          <button class="button primary" type="submit">Publier l'article</button>
+          <button class="button secondary" type="button" id="resetButton">Nouveau / Annuler</button>
+        </div>
+
+        <p id="adminMessage" class="admin-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <aside class="admin-panel">
+      <p class="eyebrow">Articles créés</p>
+      <h2>Gérer les publications</h2>
+      <div id="adminArticleList" class="admin-article-list"></div>
+    </aside>
+  </main>
+
+  <section class="admin-demo-note">
+    <strong>Mode démonstration</strong>
+    <p>
+      Dans cette version, les articles sont enregistrés dans le navigateur.
+      Ils apparaissent immédiatement sans commit GitHub. Pour une publication réelle visible
+      par tous les visiteurs, cette interface sera ensuite reliée à une base en ligne avec connexion sécurisée.
+    </p>
+  </section>
+
+  <script src="admin.js"></script>
+</body>
+</html>

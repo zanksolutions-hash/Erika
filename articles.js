@@ -1,3 +1,5 @@
+const STORAGE_KEY = "erikaCasaArticles";
+const container = document.getElementById("dynamicArticlesPage");
 const menuButton = document.getElementById("menuButton");
 const nav = document.getElementById("nav");
 
@@ -7,8 +9,6 @@ if (menuButton && nav) {
     link.addEventListener("click", () => nav.classList.remove("open"));
   });
 }
-
-const STORAGE_KEY = "erikaCasaArticles";
 
 function escapeHTML(value = "") {
   return String(value)
@@ -29,47 +29,40 @@ function formatDate(dateString) {
   }).format(d);
 }
 
-function getPublishedArticles() {
+function getArticles() {
   try {
-    const articles = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    return Array.isArray(articles)
-      ? articles.filter(article => article && article.status === "published")
+    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return Array.isArray(parsed)
+      ? parsed.filter(article => article && article.status === "published")
       : [];
   } catch {
     return [];
   }
 }
 
-function renderHomeArticles() {
-  const container = document.getElementById("homeDynamicArticles");
-  if (!container) return;
+const articles = getArticles()
+  .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
 
-  const articles = getPublishedArticles()
-    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))
-    .slice(0, 3);
-
-  if (!articles.length) {
-    container.remove();
-    return;
-  }
-
+if (!articles.length) {
+  container.remove();
+} else {
   container.innerHTML = articles.map(article => {
-    const meta = [formatDate(article.date), article.category]
+    const image = article.image || "assets/logo-psychologie-transparent.png";
+    const meta = [formatDate(article.date), article.category, article.readingTime]
       .filter(Boolean)
       .join(" · ");
 
     return `
-      <a class="home-article-teaser dynamic-home-teaser"
+      <a class="article-card article-card-link"
          href="article-dynamique.html?id=${encodeURIComponent(article.id)}">
+        <img src="${image}" alt="${escapeHTML(article.imageAlt || article.title)}">
         <div>
           <p class="article-meta">${escapeHTML(meta)}</p>
           <h3>${escapeHTML(article.title)}</h3>
           <p>${escapeHTML(article.excerpt || "")}</p>
+          <span class="article-link">Lire l’article →</span>
         </div>
-        <span>Lire →</span>
       </a>
     `;
   }).join("");
 }
-
-renderHomeArticles();
