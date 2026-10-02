@@ -1135,3 +1135,19 @@ footer {
     font-size: 1.3rem;
   }
 }
+
+
+/* Mobile : masquer le grand visuel/logo Erika Casa dans le hero */
+@media (max-width: 620px) {
+  .hero-identity {
+    display: none !important;
+  }
+
+  .hero {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
+}
