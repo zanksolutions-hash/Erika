@@ -26,6 +26,7 @@ const idInput = document.getElementById("articleId");
 const titleInput = document.getElementById("title");
 const dateInput = document.getElementById("date");
 const categoryInput = document.getElementById("category");
+const categoryOptions = document.getElementById("categoryOptions");
 const readingInput = document.getElementById("readingTime");
 const excerptInput = document.getElementById("excerpt");
 const imageInput = document.getElementById("image");
@@ -56,6 +57,29 @@ function formatDate(dateString) {
   if (!dateString) return "";
   const d = new Date(dateString + "T12:00:00");
   return new Intl.DateTimeFormat("fr-BE", { day: "numeric", month: "long", year: "numeric" }).format(d);
+}
+
+function readingMinutes(value = "") {
+  const match = String(value).match(/\d+/);
+  return match ? match[0] : "";
+}
+
+function formatReadingTime(value = "") {
+  const minutes = Number(readingMinutes(value));
+  return Number.isFinite(minutes) && minutes > 0 ? `${minutes} min de lecture` : null;
+}
+
+function renderCategoryOptions() {
+  if (!categoryOptions) return;
+  const categories = [...new Set(
+    articles
+      .map(article => String(article.category || "").trim())
+      .filter(Boolean)
+  )].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
+
+  categoryOptions.innerHTML = categories
+    .map(category => `<option value="${escapeHTML(category)}"></option>`)
+    .join("");
 }
 
 function setToday() {
@@ -126,6 +150,7 @@ async function loadArticles() {
   }
 
   articles = data || [];
+  renderCategoryOptions();
   renderList();
 }
 
@@ -137,7 +162,7 @@ function editArticle(id) {
   titleInput.value = article.title || "";
   dateInput.value = article.publication_date || "";
   categoryInput.value = article.category || "";
-  readingInput.value = article.reading_time || "";
+  readingInput.value = readingMinutes(article.reading_time || "");
   excerptInput.value = article.excerpt || "";
   bodyInput.value = article.body || "";
   sourceLabelInput.value = article.source_label || "";
@@ -228,7 +253,7 @@ form.addEventListener("submit", async event => {
       title: titleInput.value.trim(),
       publication_date: dateInput.value,
       category: categoryInput.value.trim(),
-      reading_time: readingInput.value.trim() || null,
+      reading_time: formatReadingTime(readingInput.value),
       excerpt: excerptInput.value.trim(),
       body: bodyInput.value.trim(),
       image_url: imageUrl || null,
@@ -292,6 +317,7 @@ async function showSession(session) {
     await loadArticles();
   } else {
     articles = [];
+    renderCategoryOptions();
     resetForm();
   }
 }
