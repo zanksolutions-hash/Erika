@@ -1,4 +1,4 @@
-import { supabase, isSupabaseConfigured, ARTICLE_IMAGES_BUCKET } from "./supabase-client.js";
+import { supabase, isSupabaseConfigured, ARTICLE_IMAGES_BUCKET } from "./supabase-client.js?v=20261006-3";
 
 const configPanel = document.getElementById("configPanel");
 const loginPanel = document.getElementById("loginPanel");
@@ -223,81 +223,161 @@ async function deleteArticle(id) {
   const article = articles.find(item => item.id === id);
   if (!article) return;
 
-  if (!confirm(`Suppresser Â« ${article.title} Â»È
-JH™]\›ŽÂ‚ˆÛÛœÝÈ\œ›ÜˆHH]ØZ]Ý\X˜\ÙK™œ›ÛJ˜\XÛ\ÈŠK™[]J
-K™\JšY‹Y
-NÂ‚ˆYˆ
-\œ›ÜŠHÂˆY\ÜØYÙK^ÛÛ[HÝ\™\ÜÚ[Ûˆ[\ÜÜÚX›Hˆ	Ù\œ›Ü‹›Y\ÜØYÙ_XÂˆ™]\›ŽÂˆB‚ˆYˆ
-\XÛKš[XYÙWÜ]
-HÂˆ]ØZ]™[[Ý™R[XYÙJ\XÛKš[XYÙWÜ]
-NÂˆB‚ˆYˆ
-Y[œ]˜[YHOOHY
-H™\Ù]›Ü›J
-NÂˆY\ÜØYÙK^ÛÛ[H\XÛHÝ\š[pêKˆŽÂˆ]ØZ]ØY\XÛ\Ê
-NÂŸB‚™›Ü›K˜Y]™[\Ý[™\ŠœÝX›Z]‹\Þ[˜È
-]™[
-HOˆÂˆ]™[œ™]™[Y˜][
+  if (!confirm(`Supprimer Â« ${article.title} Â» ?`)) return;
 
-NÂˆY\ÜØYÙK^ÛÛ[H‘[œ™YÚ\Ý™[Y[8 )ˆŽÂ‚ˆÛÛœÝ^\Ý[™ÒYHY[œ]˜[YNÂˆÛÛœÝ^\Ý[™ÈH\XÛ\Ë™š[™
-][HOˆ][KšYOOH^\Ý[™ÒY
-NÂ‚ˆ][XYÙU\›HÝ\œ™[[XYÙU\›^\Ý[™ÏËš[XYÙWÝ\›ˆŽÂˆ][XYÙT]HÝ\œ™[[XYÙT]^\Ý[™ÏËš[XYÙWÜ]ˆŽÂˆ]™]ÛU\ØYY]HˆŽÂ‚ˆžHÂˆÛÛœÝ™]Ò[XYÙHH[XYÙR[œ]™š[\ÏË–ÌNÂ‚ˆYˆ
-™]Ò[XYÙJHÂˆÛÛœÝ\ØYYH]ØZ]\ØY[XYÙJ™]Ò[XYÙJNÂˆ[XYÙU\›H\ØYY\›Âˆ[XYÙT]H\ØYYœ]Âˆ™]ÛU\ØYY]H\ØYYœ]ÂˆB‚ˆÛÛœÝ^[ØYHÂˆ]Nˆ]R[œ]˜[YKš[J
-KˆX›XØ][Û—Ù]Nˆ]R[œ]˜[YKˆØ]YÛÜžNˆØ]YÛÜžR[œ]˜[YKš[J
-Kˆ™XY[™×Ý[YNˆ™XY[™Ò[œ]˜[YKš[J
-H[ˆ^Ù\œˆ^Ù\œ[œ]˜[YKš[J
-Kˆ›ÙNˆ›ÙR[œ]˜[YKš[J
-Kˆ[XYÙWÝ\›ˆ[XYÙU\›[ˆ[XYÙWÜ]ˆ[XYÙT][ˆ[XYÙWØ[ˆ[XYÙP[[œ]˜[YKš[J
-H[ˆÛÝ\˜ÙWÛX™[ˆÛÝ\˜ÙSX™[[œ]˜[YKš[J
-H[ˆÛÝ\˜ÙWÝ\›ˆÛÝ\˜ÙU\›[œ]˜[YKš[J
-H[ˆÝ]\ÎˆÝ]\Ò[œ]˜[YKˆ\]YØ]ˆ™]È]J
-KÒTÓÔÝš[™Ê
-BˆNÂ‚ˆ]™\Ý[Â‚ˆYˆ
-^\Ý[™ÒY
-HÂˆ™\Ý[H]ØZ]Ý\X˜\ÙBˆ™œ›ÛJ˜\XÛ\ÈŠBˆ\]J^[ØY
-Bˆ™\JšY‹^\Ý[™ÒY
-BˆœÙ[XÝ
+  const { error } = await supabase.from("articles").delete().eq("id", id);
 
-BˆœÚ[™ÛJ
-NÂˆH[ÙHÂˆ™\Ý[H]ØZ]Ý\X˜\ÙBˆ™œ›ÛJ˜\XÛ\ÈŠBˆš[œÙ\
-^[ØY
-BˆœÙ[XÝ
+  if (error) {
+    message.textContent = `Suppression impossible : ${error.message}`;
+    return;
+  }
 
-BˆœÚ[™ÛJ
-NÂˆB‚ˆYˆ
-™\Ý[™\œ›ÜŠH›ÝÈ™\Ý[™\œ›ÜŽÂ‚ˆYˆ
-™]ÛU\ØYY]	‰ˆ^\Ý[™ÏËš[XYÙWÜ]	‰ˆ^\Ý[™Ëš[XYÙWÜ]OOH™]ÛU\ØYY]
-HÂˆ]ØZ]™[[Ý™R[XYÙJ^\Ý[™Ëš[XYÙWÜ]
-NÂˆB‚ˆÝ\œ™[[XYÙU\›H™\Ý[™]Kš[XYÙWÝ\›ˆŽÂˆÝ\œ™[[XYÙT]H™\Ý[™]Kš[XYÙWÜ]ˆŽÂˆY[œ]˜[YHH™\Ý[™]KšYÂ‚ˆY\ÜØYÙK^ÛÛ[H^\Ý[™ÒYˆÈ\XÛHZ\È0è›Ý\‹ˆ‚ˆˆÝ]\Ò[œ]˜[YHOOHœX›\ÚY‚ˆÈ\XÛHX›pêKˆ[\Ýš\ÚX›H[[pêYX][Y[Ý\ˆHÚ]Kˆ‚ˆˆœ›ÝZ[Ûˆ[œ™YÚ\Ý°êKˆŽÂ‚ˆ[XYÙR[œ]˜[YHHˆŽÂˆÚÝÔ™]šY]ÊÝ\œ™[[XYÙU\›
-NÂˆ]ØZ]ØY\XÛ\Ê
-NÂˆHØ]Ú
-\œ›ÜŠHÂˆYˆ
-™]ÛU\ØYY]
-HÂˆ]ØZ]™[[Ý™R[XYÙJ™]ÛU\ØYY]
-NÂˆBˆY\ÜØYÙK^ÛÛ[H\œ™]\ˆˆ	Ù\œ›ÜË›Y\ÜØYÙH›Ü0ê\˜][Ûˆ[\ÜÜÚX›HŸXÂˆBŸJNÂ‚œ™\Ù]]Û‹˜Y]™[\Ý[™\Š˜ÛXÚÈ‹™\Ù]›Ü›JNÂ‚›ÙÚ[‘›Ü›K˜Y]™[\Ý[™\ŠœÝX›Z]‹\Þ[˜È
-]™[
-HOˆÂˆ]™[œ™]™[Y˜][
+  if (article.image_path) {
+    await removeImage(article.image_path);
+  }
 
-NÂˆÙÚ[“Y\ÜØYÙK^ÛÛ[HÛÛ›™^[Û¸ )ˆŽÂ‚ˆÛÛœÝÈ\œ›ÜˆHH]ØZ]Ý\X˜\ÙK˜]]œÚYÛ’[•Ú]\ÜÝÛÜ™
-Âˆ[XZ[ˆÙÚ[‘[XZ[˜[YKš[J
-Kˆ\ÜÝÛÜ™ˆÙÚ[”\ÜÝÛÜ™˜[YBˆJNÂ‚ˆYˆ
-\œ›ÜŠHÂˆÙÚ[“Y\ÜØYÙK^ÛÛ[HY™\ÜÙHK[XZ[ÝH[ÝH\ÜÙH[˜ÛÜœ™XÝˆŽÂˆ™]\›ŽÂˆB‚ˆÙÚ[”\ÜÝÛÜ™˜[YHHˆŽÂˆÙÚ[“Y\ÜØYÙK^ÛÛ[HˆŽÂŸJNÂ‚›ÙÛÝ]]Û‹˜Y]™[\Ý[™\Š˜ÛXÚÈ‹\Þ[˜È
+  if (idInput.value === id) resetForm();
+  message.textContent = "Article supprimÃ©.";
+  await loadArticles();
+}
 
-HOˆÂˆ]ØZ]Ý\X˜\ÙK˜]]œÚYÛ“Ý]
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  message.textContent = "Enregistrementâ€¦";
 
-NÂŸJNÂ‚˜\Þ[˜È[˜Ý[ÛˆÚÝÔÙ\ÜÚ[ÛŠÙ\ÜÚ[ÛŠHÂˆÛÛœÝÙÙÙY[ˆH›ÛÛX[ŠÙ\ÜÚ[ÛË\Ù\ŠNÂ‚ˆÙÚ[”[™[šY[ˆHÙÙÙY[ŽÂˆYZ[\šY[ˆH[ÙÙÙY[ŽÂ‚ˆYˆ
-ÙÙÙY[ŠHÂˆÙ\ÜÚ[Û‘[XZ[^ÛÛ[HÙ\ÜÚ[Û‹\Ù\‹™[XZ[YZ[š\Ý˜]]\ˆŽÂˆÙ]Ù^J
-NÂˆ]ØZ]ØY\XÛ\Ê
-NÂˆH[ÙHÂˆ\XÛ\ÈH×NÂˆ™\Ù]›Ü›J
-NÂˆBŸB‚˜\Þ[˜È[˜Ý[Ûˆ[š]
+  const existingId = idInput.value;
+  const existing = articles.find(item => item.id === existingId);
 
-HÂˆYˆ
-Z\ÔÝ\X˜\ÙPÛÛ™šYÝ\™Y
-HÂˆÛÛ™šYÔ[™[šY[ˆH˜[ÙNÂˆÙÚ[”[™[šY[ˆHYNÂˆYZ[\šY[ˆHYNÂˆ™]\›ŽÂˆB‚ˆÛÛ™šYÔ[™[šY[ˆHYNÂ‚ˆÛÛœÝÈ]HHH]ØZ]Ý\X˜\ÙK˜]]™Ù]Ù\ÜÚ[ÛŠ
-NÂˆ]ØZ]ÚÝÔÙ\ÜÚ[ÛŠ]KœÙ\ÜÚ[ÛŠNÂ‚ˆÝ\X˜\ÙK˜]]›Û]]Ý]PÚ[™ÙJ
-Ù]™[Ù\ÜÚ[ÛŠHOˆÂˆÙ][Y[Ý]
+  let imageUrl = currentImageUrl || existing?.image_url || "";
+  let imagePath = currentImagePath || existing?.image_path || "";
+  let newlyUploadedPath = "";
 
+  try {
+    const newImage = imageInput.files?.[0];
 
-HOˆÚÝÔÙ\ÜÚ[ÛŠÙ\ÜÚ[ÛŠK
-NÂˆJNÂŸB‚š[š]
+    if (newImage) {
+      const uploaded = await uploadImage(newImage);
+      imageUrl = uploaded.url;
+      imagePath = uploaded.path;
+      newlyUploadedPath = uploaded.path;
+    }
 
-NÂ
+    const payload = {
+      title: titleInput.value.trim(),
+      publication_date: dateInput.value,
+      category: categoryInput.value.trim(),
+      reading_time: readingInput.value.trim() || null,
+      excerpt: excerptInput.value.trim(),
+      body: bodyInput.value.trim(),
+      image_url: imageUrl || null,
+      image_path: imagePath || null,
+      image_alt: imageAltInput.value.trim() || null,
+      source_label: sourceLabelInput.value.trim() || null,
+      source_url: sourceUrlInput.value.trim() || null,
+      status: statusInput.value,
+      updated_at: new Date().toISOString()
+    };
+
+    let result;
+
+    if (existingId) {
+      result = await supabase
+        .from("articles")
+        .update(payload)
+        .eq("id", existingId)
+        .select()
+        .single();
+    } else {
+      result = await supabase
+        .from("articles")
+        .insert(payload)
+        .select()
+        .single();
+    }
+
+    if (result.error) throw result.error;
+
+    if (newlyUploadedPath && existing?.image_path && existing.image_path !== newlyUploadedPath) {
+      await removeImage(existing.image_path);
+    }
+
+    currentImageUrl = result.data.image_url || "";
+    currentImagePath = result.data.image_path || "";
+    idInput.value = result.data.id;
+
+    message.textContent = existingId
+      ? "Article mis Ã  jour."
+      : statusInput.value === "published"
+        ? "Article publiÃ©. Il est visible immÃ©diatement sur le site."
+        : "Brouillon enregistrÃ©.";
+
+    imageInput.value = "";
+    showPreview(currentImageUrl);
+    await loadArticles();
+  } catch (error) {
+    if (newlyUploadedPath) {
+      await removeImage(newlyUploadedPath);
+    }
+    message.textContent = `Erreur : ${error?.message || "opÃ©ration impossible"}`;
+  }
+});
+
+resetButton.addEventListener("click", resetForm);
+
+loginForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  loginMessage.textContent = "Connexionâ€¦";
+
+  const { error } = await supabase.auth.signInWithPassword({
+    email: loginEmail.value.trim(),
+    password: loginPassword.value
+  });
+
+  if (error) {
+    loginMessage.textContent = "Adresse e-mail ou mot de passe incorrect.";
+    return;
+  }
+
+  loginPassword.value = "";
+  loginMessage.textContent = "";
+});
+
+logoutButton.addEventListener("click", async () => {
+  await supabase.auth.signOut();
+});
+
+async function showSession(session) {
+  const loggedIn = Boolean(session?.user);
+
+  loginPanel.hidden = loggedIn;
+  adminApp.hidden = !loggedIn;
+
+  if (loggedIn) {
+    sessionEmail.textContent = session.user.email || "Administrateur";
+    setToday();
+    await loadArticles();
+  } else {
+    articles = [];
+    resetForm();
+  }
+}
+
+async function init() {
+  if (!isSupabaseConfigured) {
+    configPanel.hidden = false;
+    loginPanel.hidden = true;
+    adminApp.hidden = true;
+    return;
+  }
+
+  configPanel.hidden = true;
+
+  const { data } = await supabase.auth.getSession();
+  await showSession(data.session);
+
+  supabase.auth.onAuthStateChange((_event, session) => {
+    setTimeout(() => showSession(session), 0);
+  });
+}
+
+init();
