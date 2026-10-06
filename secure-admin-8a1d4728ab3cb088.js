@@ -25,8 +25,8 @@ const form = document.getElementById("articleForm");
 const idInput = document.getElementById("articleId");
 const titleInput = document.getElementById("title");
 const dateInput = document.getElementById("date");
-const categoryInput = document.getElementById("category");
-const categoryOptions = document.getElementById("categoryOptions");
+const categorySelect = document.getElementById("categorySelect");
+const categoryCustom = document.getElementById("categoryCustom");
 const readingInput = document.getElementById("readingTime");
 const excerptInput = document.getElementById("excerpt");
 const imageInput = document.getElementById("image");
@@ -66,21 +66,63 @@ function readingMinutes(value = "") {
 
 function formatReadingTime(value = "") {
   const minutes = Number(readingMinutes(value));
-  return Number.isFinite(minutes) && minutes > 0 ? `${minutes} min de lecture` : null;
+  return Number.isFinite(minutes) && minutes > 0 ? `${minutes} min de lecture` : "";
 }
 
-function renderCategoryOptions() {
-  if (!categoryOptions) return;
+function getSelectedCategory() {
+  if (categorySelect.value === "__new__") return categoryCustom.value.trim();
+  return categorySelect.value.trim();
+}
+
+function renderCategoryOptions(selectedValue = "") {
   const categories = [...new Set(
     articles
       .map(article => String(article.category || "").trim())
       .filter(Boolean)
   )].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
 
-  categoryOptions.innerHTML = categories
-    .map(category => `<option value="${escapeHTML(category)}"></option>`)
-    .join("");
+  const preferred = "Psychologue du travail";
+  if (!categories.some(c => c.toLocaleLowerCase("fr") === preferred.toLocaleLowerCase("fr"))) {
+    categories.unshift(preferred);
+  }
+
+  categorySelect.innerHTML = [
+    '<option value="">Choisir une catégorie</option>',
+    ...categories.map(category => `<option value="${escapeHTML(category)}">${escapeHTML(category)}</option>`),
+    '<option value="__new__">+ Nouvelle catégorie…</option>'
+  ].join("");
+
+  if (selectedValue) {
+    const exists = categories.some(c => c === selectedValue);
+    if (exists) {
+      categorySelect.value = selectedValue;
+      categoryCustom.hidden = true;
+      categoryCustom.required = false;
+      categoryCustom.value = "";
+    } else {
+      categorySelect.value = "__new__";
+      categoryCustom.hidden = false;
+      categoryCustom.required = true;
+      categoryCustom.value = selectedValue;
+    }
+  }
 }
+
+categorySelect.addEventListener("change", () => {
+  const isNew = categorySelect.value === "__new__";
+  categoryCustom.hidden = !isNew;
+  categoryCustom.required = isNew;
+  if (!isNew) categoryCustom.value = "";
+  if (isNew) categoryCustom.focus();
+});
+
+readingInput.addEventListener("focus", () => {
+  readingInput.value = readingMinutes(readingInput.value);
+});
+
+readingInput.addEventListener("blur", () => {
+  readingInput.value = formatReadingTime(readingInput.value);
+});
 
 function setToday() {
   if (!dateInput.value) {
@@ -105,6 +147,10 @@ function resetForm() {
   currentImageUrl = "";
   currentImagePath = "";
   showPreview("");
+  renderCategoryOptions();
+  categorySelect.value = "";
+  categoryCustom.hidden = true;
+  categoryCustom.required = false;
   setToday();
   statusInput.value = "published";
   message.textContent = "";
@@ -161,8 +207,8 @@ function editArticle(id) {
   idInput.value = article.id;
   titleInput.value = article.title || "";
   dateInput.value = article.publication_date || "";
-  categoryInput.value = article.category || "";
-  readingInput.value = readingMinutes(article.reading_time || "");
+  renderCategoryOptions(article.category || "");
+  readingInput.value = formatReadingTime(article.reading_time || "");
   excerptInput.value = article.excerpt || "";
   bodyInput.value = article.body || "";
   sourceLabelInput.value = article.source_label || "";
@@ -234,6 +280,12 @@ form.addEventListener("submit", async event => {
   event.preventDefault();
   message.textContent = "Enregistrement…";
 
+  const category = getSelectedCategory();
+  if (!category) {
+    message.textContent = "Choisissez ou créez une catégorie.";
+    return;
+  }
+
   const existingId = idInput.value;
   const existing = articles.find(item => item.id === existingId);
   let imageUrl = currentImageUrl || existing?.image_url || "";
@@ -252,8 +304,8 @@ form.addEventListener("submit", async event => {
     const payload = {
       title: titleInput.value.trim(),
       publication_date: dateInput.value,
-      category: categoryInput.value.trim(),
-      reading_time: formatReadingTime(readingInput.value),
+      category,
+      reading_time: formatReadingTime(readingInput.value) || null,
       excerpt: excerptInput.value.trim(),
       body: bodyInput.value.trim(),
       image_url: imageUrl || null,
@@ -276,9 +328,11 @@ form.addEventListener("submit", async event => {
     currentImagePath = result.data.image_path || "";
     idInput.value = result.data.id;
     imageInput.value = "";
+    readingInput.value = formatReadingTime(result.data.reading_time || readingInput.value);
     showPreview(currentImageUrl);
     message.textContent = existingId ? "Article mis à jour." : statusInput.value === "published" ? "Article publié." : "Brouillon enregistré.";
     await loadArticles();
+    renderCategoryOptions(result.data.category || category);
   } catch (error) {
     if (newlyUploadedPath) await removeImage(newlyUploadedPath);
     message.textContent = `Erreur : ${error?.message || "opération impossible"}`;
@@ -317,7 +371,6 @@ async function showSession(session) {
     await loadArticles();
   } else {
     articles = [];
-    renderCategoryOptions();
     resetForm();
   }
 }
