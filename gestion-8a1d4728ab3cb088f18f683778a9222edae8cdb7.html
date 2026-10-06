@@ -63,12 +63,14 @@
 
           <div class="form-row two-columns">
             <label>Catégorie *
-              <input id="category" type="text" list="categoryOptions" required placeholder="Psychologue du travail">
-              <datalist id="categoryOptions"></datalist>
+              <select id="categorySelect" required>
+                <option value="">Choisir une catégorie</option>
+              </select>
+              <input id="categoryCustom" type="text" placeholder="Nouvelle catégorie" hidden>
             </label>
             <label>Temps de lecture
-              <input id="readingTime" type="number" min="1" step="1" inputmode="numeric" placeholder="2">
-              <small>Saisissez uniquement le nombre de minutes. Exemple : 2 → « 2 min de lecture ».</small>
+              <input id="readingTime" type="text" inputmode="numeric" placeholder="Ex. 2 min de lecture">
+              <small>Entrez simplement 2 : le champ affichera automatiquement « 2 min de lecture ».</small>
             </label>
           </div>
 
@@ -105,6 +107,6 @@
     </main>
   </div>
 
-  <script type="module" src="secure-admin-8a1d4728ab3cb088.js?v=20261006-5"></script>
+  <script type="module" src="secure-admin-8a1d4728ab3cb088.js?v=20261006-6"></script>
 </body>
 </html>
