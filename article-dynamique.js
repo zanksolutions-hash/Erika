@@ -1,4 +1,5 @@
-const STORAGE_KEY = "erikaCasaArticles";
+import { supabase, isSupabaseConfigured } from "./supabase-client.js";
+
 const container = document.getElementById("dynamicArticle");
 
 function escapeHTML(value = "") {
@@ -32,51 +33,52 @@ function textToHTML(text = "") {
   }).join("");
 }
 
-const id = new URLSearchParams(location.search).get("id");
-let articles = [];
+async function renderArticle() {
+  const id = new URLSearchParams(location.search).get("id");
 
-try {
-  articles = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-} catch {
-  articles = [];
-}
+  if (!id || !isSupabaseConfigured) {
+    showNotFound();
+    return;
+  }
 
-const article = articles.find(item => item.id === id && item.status === "published");
+  const { data: article, error } = await supabase
+    .from("articles")
+    .select("*")
+    .eq("id", id)
+    .eq("status", "published")
+    .maybeSingle();
 
-if (!article) {
-  container.innerHTML = `
-    <a class="article-back" href="index.html#articles">← Retour aux articles</a>
-    <h1>Article introuvable</h1>
-    <p class="article-intro">
-      Cet article n’existe pas dans ce navigateur ou a été supprimé.
-    </p>
-  `;
-} else {
+  if (error || !article) {
+    showNotFound();
+    return;
+  }
+
   document.title = `${article.title} | Erika Casa`;
 
   const meta = [
-    formatDate(article.date),
+    formatDate(article.publication_date),
     article.category,
-    article.readingTime
+    article.reading_time
   ].filter(Boolean).join(" · ");
 
-  const image = article.image
-    ? `<img class="article-hero-image" src="${article.image}" alt="${escapeHTML(article.imageAlt || article.title)}">`
+  const image = article.image_url
+    ? `<img class="article-hero-image" src="${escapeHTML(article.image_url)}"
+            alt="${escapeHTML(article.image_alt || article.title)}">`
     : "";
 
-  const source = article.sourceUrl
+  const source = article.source_url
     ? `
       <div class="dynamic-source">
         <strong>Source</strong>
-        <a href="${escapeHTML(article.sourceUrl)}" target="_blank" rel="noopener">
-          ${escapeHTML(article.sourceLabel || article.sourceUrl)}
+        <a href="${escapeHTML(article.source_url)}" target="_blank" rel="noopener noreferrer">
+          ${escapeHTML(article.source_label || article.source_url)}
         </a>
       </div>
     `
     : "";
 
   container.innerHTML = `
-    <a class="article-back" href="index.html#articles">← Retour aux articles</a>
+    <a class="article-back" href="articles.html">← Retour aux articles</a>
     <p class="eyebrow">${escapeHTML(meta)}</p>
     <h1>${escapeHTML(article.title)}</h1>
     <p class="article-intro">${escapeHTML(article.excerpt || "")}</p>
@@ -87,3 +89,15 @@ if (!article) {
     </div>
   `;
 }
+
+function showNotFound() {
+  container.innerHTML = `
+    <a class="article-back" href="articles.html">← Retour aux articles</a>
+    <h1>Article introuvable</h1>
+    <p class="article-intro">
+      Cet article n’existe pas ou n’est plus publié.
+    </p>
+  `;
+}
+
+renderArticle();

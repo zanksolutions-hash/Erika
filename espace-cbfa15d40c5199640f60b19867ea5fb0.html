@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Administration sécurisée | Erika Casa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin-secure.css">
+</head>
+<body class="admin-body">
+
+  <section class="admin-auth-shell" id="configPanel" hidden>
+    <div class="admin-login-card">
+      <p class="eyebrow">Configuration requise</p>
+      <h1>Connexion sécurisée non activée</h1>
+      <p>
+        Renseignez l’URL du projet Supabase et la clé publique <strong>anon</strong>
+        dans <code>supabase-config.js</code>, puis rechargez cette page.
+      </p>
+      <p class="admin-help">
+        Le mot de passe administrateur n’est jamais enregistré dans les fichiers du site.
+      </p>
+    </div>
+  </section>
+
+  <section class="admin-auth-shell" id="loginPanel" hidden>
+    <form class="admin-login-card" id="loginForm">
+      <img class="admin-login-logo" src="assets/logo-psychologie-transparent.png" alt="">
+      <p class="eyebrow">Administration</p>
+      <h1>Connexion</h1>
+      <p>Accès réservé à l’administration des articles.</p>
+
+      <label>
+        Adresse e-mail
+        <input id="loginEmail" type="email" autocomplete="username" required
+               placeholder="erika.casa.pro@hotmail.com">
+      </label>
+
+      <label>
+        Mot de passe
+        <input id="loginPassword" type="password" autocomplete="current-password" required>
+      </label>
+
+      <button class="button primary admin-login-button" type="submit">Se connecter</button>
+      <p id="loginMessage" class="admin-message" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <div id="adminApp" hidden>
+    <header class="admin-header">
+      <div>
+        <p class="eyebrow">Administration sécurisée</p>
+        <h1>Gérer les articles</h1>
+        <p>Publiez, modifiez ou supprimez un article sans passer par GitHub.</p>
+      </div>
+      <div class="admin-session-actions">
+        <span id="sessionEmail" class="admin-session-email"></span>
+        <a class="button secondary" href="articles.html">Voir les articles</a>
+        <button class="button secondary" type="button" id="logoutButton">Se déconnecter</button>
+      </div>
+    </header>
+
+    <main class="admin-layout">
+      <section class="admin-panel">
+        <form id="articleForm" class="article-form">
+          <input type="hidden" id="articleId">
+
+          <div class="form-row two-columns">
+            <label>
+              Titre *
+              <input id="title" type="text" required placeholder="Ex. Comprendre le burnout">
+            </label>
+
+            <label>
+              Date *
+              <input id="date" type="date" required>
+            </label>
+          </div>
+
+          <div class="form-row two-columns">
+            <label>
+              Catégorie *
+              <input id="category" type="text" required placeholder="Psychologie du travail">
+            </label>
+
+            <label>
+              Temps de lecture
+              <input id="readingTime" type="text" placeholder="3 min de lecture">
+            </label>
+          </div>
+
+          <label>
+            Résumé / chapeau *
+            <textarea id="excerpt" rows="3" required
+                      placeholder="Court résumé affiché sous le titre."></textarea>
+          </label>
+
+          <label>
+            Photo
+            <input id="image" type="file" accept="image/jpeg,image/png,image/webp">
+            <small>JPG, PNG ou WebP. L’image sera stockée dans Supabase.</small>
+          </label>
+
+          <div id="imagePreview" class="admin-image-preview" hidden></div>
+
+          <label>
+            Texte de l'article *
+            <textarea id="body" rows="14" required placeholder="Écrivez le texte ici.
+
+Séparez les paragraphes par une ligne vide.
+
+Pour créer un intertitre, écrivez :
+## Mon intertitre"></textarea>
+          </label>
+
+          <div class="form-row two-columns">
+            <label>
+              Nom de la source
+              <input id="sourceLabel" type="text" placeholder="Ex. SPF Santé, YouTube...">
+            </label>
+
+            <label>
+              Lien de la source
+              <input id="sourceUrl" type="url" placeholder="https://...">
+            </label>
+          </div>
+
+          <label>
+            Texte alternatif de l'image
+            <input id="imageAlt" type="text" placeholder="Description courte de l'image">
+          </label>
+
+          <label>
+            Statut
+            <select id="status">
+              <option value="published">Publié</option>
+              <option value="draft">Brouillon</option>
+            </select>
+          </label>
+
+          <div class="admin-actions">
+            <button class="button primary" type="submit">Enregistrer</button>
+            <button class="button secondary" type="button" id="resetButton">Nouveau / Annuler</button>
+          </div>
+
+          <p id="adminMessage" class="admin-message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <aside class="admin-panel">
+        <p class="eyebrow">Publications</p>
+        <h2>Articles enregistrés</h2>
+        <div id="adminArticleList" class="admin-article-list"></div>
+      </aside>
+    </main>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

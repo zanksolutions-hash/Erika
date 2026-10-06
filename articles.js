@@ -1,4 +1,5 @@
-const STORAGE_KEY = "erikaCasaArticles";
+import { supabase, isSupabaseConfigured } from "./supabase-client.js";
+
 const container = document.getElementById("dynamicArticlesPage");
 const menuButton = document.getElementById("menuButton");
 const nav = document.getElementById("nav");
@@ -29,34 +30,41 @@ function formatDate(dateString) {
   }).format(d);
 }
 
-let articles = [];
-try {
-  articles = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-} catch {
-  articles = [];
-}
+async function renderArticles() {
+  if (!container) return;
 
-articles = Array.isArray(articles)
-  ? articles.filter(article => article && article.status === "published")
-      .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))
-  : [];
-
-if (container) {
-  if (!articles.length) {
+  if (!isSupabaseConfigured) {
     container.remove();
-  } else {
-    container.innerHTML = articles.map(article => {
-      const meta = [formatDate(article.date), article.category].filter(Boolean).join(" · ");
-      return `
-        <a class="simple-article-link"
-           href="article-dynamique.html?id=${encodeURIComponent(article.id)}">
-          <div>
-            <p class="article-meta">${escapeHTML(meta)}</p>
-            <span>${escapeHTML(article.title)}</span>
-          </div>
-          <span class="simple-arrow">→</span>
-        </a>
-      `;
-    }).join("");
+    return;
   }
+
+  const { data, error } = await supabase
+    .from("articles")
+    .select("id,title,publication_date,category")
+    .eq("status", "published")
+    .order("publication_date", { ascending: false });
+
+  if (error || !data?.length) {
+    container.remove();
+    return;
+  }
+
+  container.innerHTML = data.map(article => {
+    const meta = [formatDate(article.publication_date), article.category]
+      .filter(Boolean)
+      .join(" · ");
+
+    return `
+      <a class="simple-article-link"
+         href="article-dynamique.html?id=${encodeURIComponent(article.id)}">
+        <div>
+          <p class="article-meta">${escapeHTML(meta)}</p>
+          <span>${escapeHTML(article.title)}</span>
+        </div>
+        <span class="simple-arrow">→</span>
+      </a>
+    `;
+  }).join("");
 }
+
+renderArticles();
