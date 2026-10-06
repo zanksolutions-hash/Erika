@@ -76,15 +76,11 @@ function getSelectedCategory() {
 
 function renderCategoryOptions(selectedValue = "") {
   const categories = [...new Set(
-    articles
-      .map(article => String(article.category || "").trim())
-      .filter(Boolean)
+    articles.map(article => String(article.category || "").trim()).filter(Boolean)
   )].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
 
   const preferred = "Psychologue du travail";
-  if (!categories.some(c => c.toLocaleLowerCase("fr") === preferred.toLocaleLowerCase("fr"))) {
-    categories.unshift(preferred);
-  }
+  if (!categories.some(c => c.toLowerCase() === preferred.toLowerCase())) categories.unshift(preferred);
 
   categorySelect.innerHTML = [
     '<option value="">Choisir une catégorie</option>',
@@ -92,19 +88,23 @@ function renderCategoryOptions(selectedValue = "") {
     '<option value="__new__">+ Nouvelle catégorie…</option>'
   ].join("");
 
-  if (selectedValue) {
-    const exists = categories.some(c => c === selectedValue);
-    if (exists) {
-      categorySelect.value = selectedValue;
-      categoryCustom.hidden = true;
-      categoryCustom.required = false;
-      categoryCustom.value = "";
-    } else {
-      categorySelect.value = "__new__";
-      categoryCustom.hidden = false;
-      categoryCustom.required = true;
-      categoryCustom.value = selectedValue;
-    }
+  categoryCustom.hidden = true;
+  categoryCustom.required = false;
+  categoryCustom.value = "";
+
+  if (!selectedValue) {
+    categorySelect.value = "";
+    return;
+  }
+
+  const exact = categories.find(c => c.toLowerCase() === String(selectedValue).trim().toLowerCase());
+  if (exact) {
+    categorySelect.value = exact;
+  } else {
+    categorySelect.value = "__new__";
+    categoryCustom.hidden = false;
+    categoryCustom.required = true;
+    categoryCustom.value = selectedValue;
   }
 }
 
@@ -148,9 +148,6 @@ function resetForm() {
   currentImagePath = "";
   showPreview("");
   renderCategoryOptions();
-  categorySelect.value = "";
-  categoryCustom.hidden = true;
-  categoryCustom.required = false;
   setToday();
   statusInput.value = "published";
   message.textContent = "";
@@ -200,24 +197,46 @@ async function loadArticles() {
   renderList();
 }
 
-function editArticle(id) {
-  const article = articles.find(item => item.id === id);
+function fillArticleForm(article) {
   if (!article) return;
 
-  idInput.value = article.id;
-  titleInput.value = article.title || "";
-  dateInput.value = article.publication_date || "";
-  renderCategoryOptions(article.category || "");
-  readingInput.value = formatReadingTime(article.reading_time || "");
-  excerptInput.value = article.excerpt || "";
-  bodyInput.value = article.body || "";
-  sourceLabelInput.value = article.source_label || "";
-  sourceUrlInput.value = article.source_url || "";
-  imageAltInput.value = article.image_alt || "";
+  idInput.value = article.id || "";
+  titleInput.value = article.title ?? "";
+  dateInput.value = article.publication_date ?? "";
+  excerptInput.value = article.excerpt ?? "";
+  bodyInput.value = article.body ?? "";
+  sourceLabelInput.value = article.source_label ?? "";
+  sourceUrlInput.value = article.source_url ?? "";
+  imageAltInput.value = article.image_alt ?? "";
   statusInput.value = article.status || "published";
-  currentImageUrl = article.image_url || "";
-  currentImagePath = article.image_path || "";
+  readingInput.value = formatReadingTime(article.reading_time ?? "");
+
+  renderCategoryOptions(article.category ?? "");
+
+  currentImageUrl = article.image_url ?? "";
+  currentImagePath = article.image_path ?? "";
   showPreview(currentImageUrl);
+}
+
+async function editArticle(id) {
+  message.textContent = "Chargement de l’article…";
+
+  const { data: article, error } = await supabase
+    .from("articles")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error || !article) {
+    message.textContent = `Impossible de charger l’article : ${error?.message || "article introuvable"}`;
+    return;
+  }
+
+  const index = articles.findIndex(item => item.id === article.id);
+  if (index >= 0) articles[index] = article;
+
+  fillArticleForm(article);
+  message.textContent = "Article chargé. Vous pouvez modifier tous les champs.";
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
@@ -326,13 +345,10 @@ form.addEventListener("submit", async event => {
 
     currentImageUrl = result.data.image_url || "";
     currentImagePath = result.data.image_path || "";
-    idInput.value = result.data.id;
     imageInput.value = "";
-    readingInput.value = formatReadingTime(result.data.reading_time || readingInput.value);
-    showPreview(currentImageUrl);
-    message.textContent = existingId ? "Article mis à jour." : statusInput.value === "published" ? "Article publié." : "Brouillon enregistré.";
     await loadArticles();
-    renderCategoryOptions(result.data.category || category);
+    fillArticleForm(result.data);
+    message.textContent = existingId ? "Article mis à jour." : statusInput.value === "published" ? "Article publié." : "Brouillon enregistré.";
   } catch (error) {
     if (newlyUploadedPath) await removeImage(newlyUploadedPath);
     message.textContent = `Erreur : ${error?.message || "opération impossible"}`;
