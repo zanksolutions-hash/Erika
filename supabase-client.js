@@ -1,20 +1,15 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-import { SUPABASE_URL, SUPABASE_ANON_KEY, ARTICLE_IMAGES_BUCKET } from "./supabase-config.js";
 
-export const isSupabaseConfigured =
-  Boolean(SUPABASE_URL) &&
-  Boolean(SUPABASE_ANON_KEY) &&
-  !SUPABASE_URL.includes("VOTRE_") &&
-  !SUPABASE_ANON_KEY.includes("VOTRE_");
+const SUPABASE_URL = "https://wlaypzkiokwknwioxwoq.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_KC7o5nOGfz4dzQrgUhc1Mg_ATbDqzYI";
+export const ARTICLE_IMAGES_BUCKET = "article-images";
 
-export const supabase = isSupabaseConfigured
-  ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-      auth: {
-        persistSession: true,
-        autoRefreshToken: true,
-        detectSessionInUrl: true
-      }
-    })
-  : null;
+export const isSupabaseConfigured = true;
 
-export { ARTICLE_IMAGES_BUCKET };
+export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+  auth: {
+    persistSession: true,
+    autoRefreshToken: true,
+    detectSessionInUrl: true
+  }
+});
