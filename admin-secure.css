@@ -1,4 +1,11 @@
 /* Administration sécurisée */
+
+/* Important : les éléments portant l'attribut hidden doivent réellement être masqués,
+   même si une classe définit display:grid/flex. */
+[hidden] {
+  display: none !important;
+}
+
 .admin-auth-shell {
   min-height: 100vh;
   display: grid;
