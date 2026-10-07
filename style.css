@@ -1151,3 +1151,206 @@ footer {
     max-width: 100%;
   }
 }
+
+
+/* Page service : Autisme & emploi */
+.service-feature-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 34px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 34px 38px;
+  color: var(--ink);
+  background: var(--mint);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.service-feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 38px rgba(38,49,47,.09);
+  border-color: #bccbc4;
+}
+.service-feature-kicker {
+  color: var(--accent-dark);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .72rem;
+  font-weight: 700;
+}
+.service-feature-card h3 {
+  margin: 7px 0 10px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.1;
+}
+.service-feature-card p {
+  max-width: 820px;
+  margin: 0;
+  color: var(--muted);
+}
+.service-feature-link {
+  color: var(--accent-dark);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.service-page-hero {
+  padding: 92px clamp(20px, 7vw, 110px) 78px;
+  background: linear-gradient(135deg, var(--bg) 0%, #eef3f0 100%);
+}
+.service-page-hero-inner {
+  max-width: 980px;
+}
+.service-page-hero h1 {
+  max-width: 940px;
+  margin: 8px 0 22px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 6vw, 5.6rem);
+  line-height: 1.04;
+  letter-spacing: -.03em;
+}
+.service-page-hero .lead {
+  max-width: 800px;
+  font-size: clamp(1.08rem, 2vw, 1.3rem);
+}
+.service-page-intro {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 70px;
+  align-items: start;
+  background: var(--paper);
+}
+.service-page-intro h2,
+.service-content-section h2,
+.service-final-cta h2 {
+  margin: 8px 0 18px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  line-height: 1.1;
+}
+.service-page-intro-copy p,
+.service-content-section > p,
+.service-final-cta p {
+  color: var(--muted);
+}
+.audience-grid,
+.support-grid,
+.tools-grid {
+  display: grid;
+  gap: 18px;
+}
+.audience-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 34px;
+}
+.audience-card,
+.support-card,
+.tool-card {
+  padding: 26px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+}
+.audience-card h3,
+.support-card h3,
+.tool-card h3 {
+  margin: 0 0 9px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+.audience-card p,
+.support-card p,
+.tool-card p {
+  margin: 0;
+  color: var(--muted);
+}
+.service-content-section.alt {
+  background: #eef3f0;
+}
+.support-grid {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 36px;
+}
+.support-card {
+  padding: clamp(26px, 4vw, 42px);
+}
+.support-card h3 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+.support-card ul,
+.service-check-list,
+.tool-card ul {
+  margin: 20px 0 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+.support-card li,
+.service-check-list li,
+.tool-card li {
+  margin: 9px 0;
+}
+.service-check-list {
+  columns: 2;
+  column-gap: 46px;
+  max-width: 980px;
+}
+.tools-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 32px;
+}
+.service-final-cta {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 50px;
+  align-items: center;
+  background: var(--mint);
+}
+.service-final-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+.service-back-link {
+  display: inline-flex;
+  margin-bottom: 24px;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+@media (max-width: 900px) {
+  .service-page-intro,
+  .service-final-cta {
+    grid-template-columns: 1fr;
+  }
+  .audience-grid,
+  .tools-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .service-final-actions {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 620px) {
+  .service-feature-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 28px 24px;
+  }
+  .service-feature-link {
+    white-space: normal;
+  }
+  .service-page-hero {
+    padding-top: 62px;
+  }
+  .audience-grid,
+  .support-grid,
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-check-list {
+    columns: 1;
+  }
+}
