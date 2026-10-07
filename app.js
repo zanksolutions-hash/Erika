@@ -44,7 +44,7 @@ async function renderHomeArticles() {
     <a class="simple-article-link"
        href="article-dynamique.html?id=${encodeURIComponent(article.id)}">
       <span>${escapeHTML(article.title)}</span>
-      <span class="simple-arrow">→</span>
+      <span class="simple-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
     </a>
   `).join("");
 }
