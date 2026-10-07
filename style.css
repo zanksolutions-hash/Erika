@@ -1773,3 +1773,25 @@ footer {
   .autism-mock-closing { padding:44px 22px; }
   .autism-mock-closing h2 { font-size:2.55rem; }
 }
+
+
+/* Autisme & emploi — hero sans illustration */
+.autism-mock-hero.autism-mock-hero-noimage {
+  display:block;
+  min-height:0;
+  background:linear-gradient(115deg,#f7f4ee 0%,#eef2ec 100%);
+}
+.autism-mock-hero-noimage .autism-mock-hero-copy {
+  max-width:1100px;
+  min-height:390px;
+  padding-right:clamp(28px,7vw,110px);
+}
+.autism-mock-hero-noimage .autism-mock-hero-copy > p:not(.eyebrow) {
+  max-width:760px;
+}
+@media (max-width:820px) {
+  .autism-mock-hero-noimage .autism-mock-hero-copy {
+    min-height:0;
+    padding:54px 24px 44px;
+  }
+}
