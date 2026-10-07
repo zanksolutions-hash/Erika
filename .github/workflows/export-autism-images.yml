@@ -1,0 +1,65 @@
+name: Export autism page images
+
+on:
+  push:
+    paths:
+      - '.github/workflows/export-autism-images.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: python -m pip install --upgrade pillow
+
+      - name: Build editable PNG export
+        run: |
+          rm -rf /tmp/autisme-images
+          mkdir -p /tmp/autisme-images
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+
+          names = [
+              "illustration-autisme-individuel",
+              "illustration-autisme-collectif",
+              "illustration-autisme-outils",
+          ]
+          for name in names:
+              src = Path("assets") / f"{name}.webp"
+              dst = Path("/tmp/autisme-images") / f"{name}.png"
+              Image.open(src).convert("RGB").save(dst, "PNG", optimize=True)
+              print(dst)
+          PY
+
+          cp assets/illustration-autisme-individuel.webp /tmp/autisme-images/
+          cp assets/illustration-autisme-collectif.webp /tmp/autisme-images/
+          cp assets/illustration-autisme-outils.webp /tmp/autisme-images/
+
+          mkdir -p exports
+          rm -f exports/autisme-images-retouche.zip
+          cd /tmp
+          zip -9 -r "$GITHUB_WORKSPACE/exports/autisme-images-retouche.zip" autisme-images
+
+      - name: Commit export archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add exports/autisme-images-retouche.zip
+          if git diff --cached --quiet; then
+            echo "No export changes."
+          else
+            git commit -m "Export autism page images for editing"
+            git push
+          fi
