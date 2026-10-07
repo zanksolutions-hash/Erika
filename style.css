@@ -1836,3 +1836,33 @@ footer {
   font-size:22px;
   line-height:1;
 }
+
+
+/* Tabler — iconographie globale */
+.menu-button .ti {
+  display:block;
+  font-size:1.55rem;
+  line-height:1;
+}
+.service-icon .ti {
+  font-size:25px;
+  line-height:1;
+}
+.simple-arrow .ti {
+  display:block;
+  font-size:1.25rem;
+  line-height:1;
+}
+.article-back {
+  align-items:center;
+  gap:8px;
+}
+.article-back .ti {
+  font-size:1.15rem;
+  line-height:1;
+}
+.service-card-link strong .ti {
+  margin-left:4px;
+  vertical-align:-2px;
+  font-size:1rem;
+}
