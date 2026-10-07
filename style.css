@@ -1585,3 +1585,191 @@ footer {
     border-radius: 20px;
   }
 }
+
+
+/* Autisme & emploi — reconstruction fidèle au mockup validé */
+.autism-mock-page { background:#f7f4ee; }
+.autism-mock { overflow:hidden; }
+.autism-mock h1,
+.autism-mock h2 { font-family:"Playfair Display",serif; color:var(--ink); letter-spacing:-.025em; }
+.autism-mock .eyebrow { margin:0 0 9px; color:var(--accent-dark); font-size:.72rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; }
+
+.autism-mock-hero {
+  display:grid;
+  grid-template-columns:minmax(0,.95fr) minmax(520px,1.05fr);
+  min-height:520px;
+  background:linear-gradient(115deg,#f7f4ee 0%,#f7f4ee 48%,#eef2ec 100%);
+}
+.autism-mock-hero-copy {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:64px 4vw 64px clamp(28px,7vw,110px);
+  z-index:1;
+}
+.autism-mock-hero h1 {
+  max-width:760px;
+  margin:0 0 18px;
+  font-size:clamp(3rem,4.8vw,5.15rem);
+  line-height:.98;
+}
+.autism-mock-hero-copy>p:not(.eyebrow) {
+  max-width:690px;
+  margin:0 0 26px;
+  color:#44504c;
+  font-size:clamp(1rem,1.35vw,1.22rem);
+  line-height:1.55;
+}
+.autism-mock-hero-image { min-height:520px; overflow:hidden; }
+.autism-mock-hero-image img { width:100%; height:100%; min-height:520px; object-fit:cover; object-position:center; display:block; }
+.autism-mock .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+.autism-mock .button { min-height:46px; display:inline-flex; align-items:center; gap:14px; }
+
+.autism-mock-audience {
+  display:grid;
+  grid-template-columns:minmax(270px,.72fr) minmax(0,2.28fr);
+  gap:28px;
+  padding:34px clamp(24px,4vw,64px);
+  background:#fbfaf7;
+  border-top:1px solid rgba(95,125,114,.14);
+  border-bottom:1px solid rgba(95,125,114,.14);
+}
+.autism-mock-audience-intro { padding:6px 10px; }
+.autism-mock-audience-intro h2 { margin:0 0 10px; font-size:clamp(1.8rem,2.3vw,2.55rem); line-height:1.05; }
+.autism-mock-audience-intro>p:last-child { margin:0; color:var(--muted); font-size:.92rem; line-height:1.55; }
+.autism-mock-audience-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }
+.autism-mock-mini {
+  min-height:178px;
+  padding:20px 14px 16px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:rgba(255,255,255,.62);
+  border:1px solid #e8e5de;
+  border-radius:16px;
+}
+.autism-mock-mini .visual-icon { width:50px; height:50px; margin:0 0 16px; border-radius:50%; background:#eee9dc; }
+.autism-mock-mini .visual-icon svg { width:25px; height:25px; }
+.autism-mock-mini strong { font-size:.88rem; line-height:1.28; font-weight:500; }
+
+.autism-mock-formats {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  padding:16px clamp(16px,2vw,32px);
+  background:#f4f1eb;
+}
+.autism-mock-feature {
+  position:relative;
+  min-height:520px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  background:#f5f6ef;
+  border:1px solid #e4e2da;
+  border-radius:22px;
+}
+.autism-mock-feature-warm { background:#f7efe7; }
+.autism-mock-feature-copy { padding:34px 10px 30px 34px; position:relative; z-index:2; }
+.autism-mock-feature h2 { margin:0 0 12px; font-size:clamp(2rem,2.6vw,3rem); line-height:1.02; }
+.autism-mock-feature-copy>p:not(.eyebrow) { margin:0 0 18px; color:#4d5753; font-size:.91rem; line-height:1.5; }
+.autism-mock-feature>img { width:100%; height:100%; min-height:520px; object-fit:cover; object-position:center; }
+.autism-mock-checks { list-style:none; padding:0; margin:0; display:grid; gap:7px; }
+.autism-mock-checks li { position:relative; padding-left:27px; color:#47524e; font-size:.84rem; line-height:1.35; }
+.autism-mock-checks li::before {
+  content:"✓"; position:absolute; left:0; top:-1px; width:19px; height:19px;
+  display:grid; place-items:center; border-radius:50%; color:#fff; background:var(--accent); font-size:.7rem; font-weight:700;
+}
+.autism-mock-feature-warm .autism-mock-checks li::before { background:#b76b4d; }
+.autism-mock-feature-warm .eyebrow { color:#a45d43; }
+
+.autism-mock-tools {
+  display:grid;
+  grid-template-columns:minmax(250px,.8fr) minmax(280px,.7fr) minmax(0,1.5fr);
+  gap:24px;
+  align-items:center;
+  padding:30px clamp(24px,4vw,64px);
+  background:#fbfaf7;
+}
+.autism-mock-tools-copy h2 { margin:0 0 10px; font-size:clamp(2rem,2.8vw,3.2rem); line-height:1.03; }
+.autism-mock-tools-copy>p:last-child { margin:0; color:var(--muted); font-size:.9rem; line-height:1.5; }
+.autism-mock-tools-visual img { width:100%; height:180px; object-fit:cover; border-radius:18px; border:1px solid #e4e2da; display:block; }
+.autism-mock-tools-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
+.autism-mock-tools-grid>div {
+  min-height:112px; padding:12px 8px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:8px; text-align:center; background:#f4f5ef; border:1px solid #e8e8e1; border-radius:13px;
+}
+.autism-mock-tools-grid span { color:var(--accent-dark); font-size:1.45rem; line-height:1; }
+.autism-mock-tools-grid strong { font-size:.72rem; line-height:1.28; font-weight:500; color:#4b5652; }
+
+.autism-mock-closing {
+  position:relative;
+  min-height:360px;
+  display:grid;
+  grid-template-columns:minmax(0,1.5fr) minmax(260px,.5fr);
+  gap:40px;
+  align-items:center;
+  padding:54px clamp(28px,7vw,110px);
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 72% 20%,rgba(245,210,153,.35),transparent 25%),
+    linear-gradient(120deg,#f4eee3 0%,#eef0e6 58%,#dfe8dc 100%);
+}
+.autism-mock-closing::after {
+  content:""; position:absolute; right:-70px; bottom:-120px; width:440px; height:300px;
+  border-radius:50% 50% 0 0; background:rgba(95,125,114,.08); transform:rotate(-8deg);
+}
+.autism-mock-closing-copy { position:relative; z-index:2; max-width:980px; }
+.autism-mock-closing h2 { max-width:900px; margin:0 0 12px; font-size:clamp(2.5rem,4vw,4.6rem); line-height:1; }
+.autism-mock-closing-copy>p:not(.eyebrow) { max-width:880px; color:#4d5753; line-height:1.55; }
+.autism-mock-values { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0 24px; }
+.autism-mock-values span { padding:8px 12px; background:rgba(255,255,255,.58); border:1px solid rgba(95,125,114,.2); border-radius:999px; font-size:.8rem; }
+.autism-mock-closing-card {
+  position:relative; z-index:2; min-height:210px; padding:30px; display:flex; flex-direction:column; justify-content:center;
+  align-items:center; gap:8px; background:#fffdf8; border-radius:48% 52% 45% 55% / 55% 45% 55% 45%;
+  box-shadow:0 18px 50px rgba(55,70,63,.08); transform:rotate(-2deg);
+  font-family:"Playfair Display",serif; font-size:clamp(1.45rem,2vw,2rem); font-style:italic;
+}
+.autism-mock-closing-card span:nth-child(2) { color:var(--accent); font-size:1.15em; }
+
+@media (max-width:1180px) {
+  .autism-mock-hero { grid-template-columns:1fr 1fr; }
+  .autism-mock-audience { grid-template-columns:1fr; }
+  .autism-mock-audience-grid { grid-template-columns:repeat(5,1fr); }
+  .autism-mock-formats { grid-template-columns:1fr; }
+  .autism-mock-feature { min-height:470px; }
+  .autism-mock-feature>img { min-height:470px; }
+  .autism-mock-tools { grid-template-columns:.8fr .7fr; }
+  .autism-mock-tools-grid { grid-column:1/-1; grid-template-columns:repeat(7,1fr); }
+}
+@media (max-width:820px) {
+  .autism-mock-hero { grid-template-columns:1fr; }
+  .autism-mock-hero-copy { padding:54px 24px 36px; }
+  .autism-mock-hero h1 { font-size:clamp(2.7rem,10vw,4.5rem); }
+  .autism-mock-hero-image,.autism-mock-hero-image img { min-height:0; height:min(72vw,520px); }
+  .autism-mock-audience-grid { grid-template-columns:repeat(2,1fr); }
+  .autism-mock-mini:last-child { grid-column:1/-1; }
+  .autism-mock-feature { grid-template-columns:1fr; }
+  .autism-mock-feature-copy { padding:28px 24px 24px; }
+  .autism-mock-feature>img { min-height:0; height:330px; order:-1; }
+  .autism-mock-tools { grid-template-columns:1fr; }
+  .autism-mock-tools-grid { grid-column:auto; grid-template-columns:repeat(2,1fr); }
+  .autism-mock-closing { grid-template-columns:1fr; }
+  .autism-mock-closing-card { max-width:340px; width:100%; margin:auto; }
+}
+@media (max-width:520px) {
+  .autism-mock-audience { padding:28px 18px; }
+  .autism-mock-audience-grid { gap:8px; }
+  .autism-mock-mini { min-height:150px; padding:16px 10px; }
+  .autism-mock-mini strong { font-size:.8rem; }
+  .autism-mock-formats { padding:10px; }
+  .autism-mock-feature { border-radius:18px; }
+  .autism-mock-feature>img { height:250px; }
+  .autism-mock-tools { padding:30px 18px; }
+  .autism-mock-tools-visual img { height:auto; max-height:300px; }
+  .autism-mock-tools-grid>div { min-height:108px; }
+  .autism-mock-closing { padding:44px 22px; }
+  .autism-mock-closing h2 { font-size:2.55rem; }
+}
