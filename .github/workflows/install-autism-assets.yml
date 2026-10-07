@@ -1,0 +1,26 @@
+name: Install new autism illustrations
+on:
+  push:
+    paths:
+      - 'tmp-autism-assets/ready.txt'
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode images
+        run: |
+          base64 -d tmp-autism-assets/individuel.b64 > assets/illustration-autisme-individuel.webp
+          base64 -d tmp-autism-assets/collectif.b64 > assets/illustration-autisme-collectif.webp
+          base64 -d tmp-autism-assets/outils.b64 > assets/illustration-autisme-outils.webp
+          rm -rf tmp-autism-assets
+          rm -f .github/workflows/install-autism-assets.yml
+      - name: Commit images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Replace autism page illustrations" || exit 0
+          git push
