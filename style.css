@@ -1795,3 +1795,22 @@ footer {
     padding:54px 24px 44px;
   }
 }
+
+
+/* Crédit créateur du site */
+.footer-credit {
+  position:absolute;
+  right:clamp(20px,7vw,110px);
+  bottom:16px;
+  margin:0;
+  text-align:right;
+  color:#c8d0cd;
+  font-size:.82rem;
+  white-space:nowrap;
+}
+.footer-credit a { font-weight:700; }
+.footer-credit-details { display:inline; }
+@media (max-width:760px) {
+  .footer-credit-details { display:none; }
+  .footer-credit { white-space:normal; }
+}
