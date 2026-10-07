@@ -1814,3 +1814,25 @@ footer {
   .footer-credit-details { display:none; }
   .footer-credit { white-space:normal; }
 }
+
+
+/* Autisme & emploi — iconographie Tabler */
+.autism-mock .visual-icon .ti {
+  font-size:26px;
+  line-height:1;
+  color:var(--accent-dark);
+}
+.autism-mock-tools-grid .tool-tabler-icon {
+  display:grid;
+  place-items:center;
+  width:38px;
+  height:38px;
+  margin:0 auto;
+  border-radius:50%;
+  background:#ebe8dc;
+  color:var(--accent-dark);
+}
+.autism-mock-tools-grid .tool-tabler-icon .ti {
+  font-size:22px;
+  line-height:1;
+}
