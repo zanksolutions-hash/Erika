@@ -1536,3 +1536,52 @@ footer {
     margin: -36px 16px 0;
   }
 }
+
+
+/* Illustrations générées intégrées au contenu Autisme */
+.autism-card-illustrated {
+  overflow: hidden;
+  padding-top: 0;
+}
+.autism-section-illustration {
+  display: block;
+  width: calc(100% + clamp(56px, 8vw, 88px));
+  max-width: none;
+  height: 250px;
+  margin: 0 calc(clamp(28px, 4vw, 44px) * -1) 30px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+}
+.autism-tools-heading {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, .75fr);
+  gap: clamp(32px, 6vw, 72px);
+  align-items: center;
+  max-width: 1180px;
+}
+.autism-tools-illustration {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+}
+@media (max-width: 820px) {
+  .autism-tools-heading {
+    grid-template-columns: 1fr;
+  }
+  .autism-tools-illustration {
+    max-height: 360px;
+  }
+}
+@media (max-width: 620px) {
+  .autism-section-illustration {
+    width: calc(100% + 48px);
+    height: 205px;
+    margin: 0 -24px 24px;
+  }
+  .autism-tools-illustration {
+    max-height: 260px;
+    border-radius: 20px;
+  }
+}
