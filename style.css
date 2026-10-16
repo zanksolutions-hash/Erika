@@ -1987,3 +1987,10 @@ footer {
   .autism-course-actions { flex-direction:column; }
   .autism-course-actions .button { width:100%; }
 }
+
+/* Navigation cours collectifs */
+.autism-course-section { scroll-margin-top:88px; }
+@media (min-width:981px) and (max-width:1150px) {
+  .site-header { gap:16px; padding-left:22px; padding-right:22px; }
+  .nav { gap:14px; font-size:.88rem; }
+}
