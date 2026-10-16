@@ -2157,3 +2157,156 @@ footer {
   .about-refined .about-portrait-photo { right:-9%; height:100%; }
   .about-portrait-quote { top:10%; left:2%; font-size:.95rem; }
 }
+
+/* Ajustements validés : bouton Autisme et portrait À propos — 16 octobre 2026 */
+@media (min-width:1181px) {
+  .service-grid {
+    grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.43fr);
+  }
+}
+.service-card-autism { padding:24px 21px; isolation:isolate; }
+.service-card-autism .service-card-cta {
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:7px; width:calc(100% - 21px); max-width:260px;
+  align-self:flex-start; margin-top:auto; padding:12px 9px;
+  white-space:nowrap; font-size:clamp(.73rem,1.08vw,.84rem);
+  letter-spacing:-.025em; line-height:1.15;
+  border-radius:999px; box-sizing:border-box;
+  position:relative; z-index:1;
+}
+.service-card-autism .service-card-cta span { white-space:nowrap; }
+.service-card-autism .service-card-cta .ti {
+  font-size:1rem; line-height:1; margin:0; flex:0 0 auto;
+}
+.service-card-autism .service-card-spark {
+  position:absolute; z-index:1;
+  width:25px; height:40px; right:6px; bottom:22px;
+  color:#4e705d; pointer-events:none;
+}
+@media (min-width:621px) and (max-width:1180px) {
+  .service-card-autism .service-card-cta {
+    width:fit-content; max-width:calc(100% - 38px);
+    margin-top:18px; padding:13px 18px; font-size:.88rem;
+  }
+  .service-card-autism .service-card-spark { right:18px; bottom:27px; }
+}
+@media (max-width:620px) {
+  .service-card-autism .service-card-cta {
+    width:fit-content; max-width:calc(100% - 34px);
+    padding:13px 16px; font-size:.9rem; margin-top:24px;
+  }
+  .service-card-autism .service-card-spark { right:12px; bottom:26px; }
+}
+@media (max-width:360px) {
+  .service-card-autism .service-card-cta { font-size:.8rem; padding:11px 12px; }
+}
+
+/* À propos : composition de la maquette (portrait, formes et ornements) */
+.about-refined {
+  position:relative;
+  grid-template-columns:minmax(0,1.03fr) minmax(0,1fr);
+  gap:clamp(24px,3.5vw,64px);
+  padding-top:clamp(45px,5vw,78px);
+  padding-bottom:0;
+  background:#fffdf9;
+  overflow:hidden;
+}
+.about-refined .about-copy {
+  z-index:3;
+  padding-bottom:clamp(62px,6vw,92px);
+}
+.about-refined h2 {
+  font-size:clamp(2.9rem,4.5vw,4.8rem);
+  margin:8px 0 25px;
+}
+.about-refined .about-intro {
+  font-size:clamp(.98rem,1.1vw,1.1rem);
+  line-height:1.73;
+}
+.about-refined .about-more-toggle { border-radius:999px; }
+.about-refined .about-portrait-stage {
+  min-height:560px;
+  align-self:stretch;
+  overflow:visible;
+  margin-top:-42px;
+}
+.about-refined .about-portrait-stage::before {
+  width:87%; height:72%; top:10%; left:-3%;
+  border-radius:51% 49% 57% 43% / 52% 45% 55% 48%;
+  background:#f2f1e9;
+  transform:rotate(-14deg);
+}
+.about-refined .about-portrait-shape {
+  width:107%; height:65%; bottom:-22%; right:-11%;
+  border-radius:58% 42% 51% 49% / 62% 57% 43% 38%;
+  background:linear-gradient(135deg,#dbe8dc,#bdd3c3);
+  transform:rotate(-17deg);
+}
+.about-refined .about-portrait-photo {
+  right:-5%; bottom:-3px;
+  height:calc(100% + 24px);
+  max-height:none; width:auto; max-width:none;
+  object-fit:contain; object-position:bottom right;
+  filter:drop-shadow(0 11px 13px rgba(42,66,49,.075));
+}
+.about-refined .about-portrait-quote {
+  z-index:1; top:22%; left:4%;
+  color:#405f52; max-width:230px;
+  font-family:"Caveat","Playfair Display",cursive;
+  font-size:clamp(1.5rem,2.05vw,2.2rem);
+  font-weight:500; line-height:1.08;
+  transform:rotate(-5deg);
+}
+.about-botanical {
+  position:absolute; color:#537568; fill:none;
+  pointer-events:none; z-index:3;
+}
+.about-botanical-left {
+  left:clamp(-20px,-1vw,-8px); bottom:6%;
+  width:105px; height:195px; opacity:.87;
+}
+.about-botanical-right {
+  right:-5%; top:18%; width:170px; height:242px; opacity:.9;
+}
+.about-portrait-rays {
+  position:absolute; z-index:3; width:44px; height:43px;
+  color:#527669; pointer-events:none;
+}
+.about-portrait-rays-top { top:22%; left:-3%; }
+.about-portrait-rays-bottom { bottom:9%; left:-1%; transform:rotate(-6deg); }
+@media (min-width:1350px) {
+  .about-refined .about-portrait-stage { min-height:610px; }
+  .about-refined .about-portrait-photo { right:-4%; }
+  .about-botanical-right { right:-2%; }
+}
+@media (max-width:980px) {
+  .about-refined { grid-template-columns:1fr; gap:0; padding-top:60px; }
+  .about-refined .about-copy { padding-bottom:32px; }
+  .about-refined .about-portrait-stage {
+    min-height:560px; max-width:680px; margin:0 auto;
+  }
+  .about-refined .about-portrait-photo { right:-2%; height:100%; }
+  .about-botanical-left { bottom:2%; }
+}
+@media (max-width:620px) {
+  .about-refined { padding-top:58px; }
+  .about-refined h2 { font-size:clamp(2.3rem,10vw,3.5rem); }
+  .about-refined .about-copy { padding-bottom:25px; }
+  .about-refined .about-portrait-stage {
+    min-height:430px; width:100%; max-width:none;
+  }
+  .about-refined .about-portrait-photo { right:-11%; height:103%; }
+  .about-refined .about-portrait-quote {
+    top:19%; left:1%; max-width:165px;
+    font-size:clamp(1.45rem,6vw,1.8rem);
+  }
+  .about-botanical-left { width:64px; height:120px; bottom:0; left:-21px; }
+  .about-botanical-right { width:90px; height:125px; right:-6%; top:21%; }
+  .about-portrait-rays-top { left:1%; top:13%; width:30px; }
+  .about-portrait-rays-bottom { left:0; bottom:7%; width:30px; }
+}
+@media (max-width:390px) {
+  .about-refined .about-portrait-stage { min-height:380px; }
+  .about-refined .about-portrait-photo { right:-13%; }
+  .about-refined .about-portrait-quote { max-width:130px; font-size:1.3rem; }
+}
