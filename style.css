@@ -1866,3 +1866,124 @@ footer {
   vertical-align:-2px;
   font-size:1rem;
 }
+
+
+/* Cours collectifs — deuxième session */
+.autism-course-section {
+  padding:clamp(48px,6vw,86px) clamp(18px,4vw,64px);
+  background:#eaf0e9;
+}
+.autism-course-shell { max-width:1320px; margin:0 auto; }
+.autism-course-heading {
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(235px,300px);
+  gap:clamp(22px,5vw,70px); align-items:end; margin-bottom:32px;
+}
+.autism-course-intro h2 {
+  max-width:850px; margin:0 0 16px;
+  font-size:clamp(2.35rem,4vw,4.4rem); line-height:1.05;
+}
+.autism-course-intro>p:last-child {
+  max-width:700px; margin:0; color:#4e5b55; line-height:1.7; font-size:1.02rem;
+}
+.autism-course-time {
+  display:flex; flex-direction:column; align-items:flex-start; gap:9px;
+  padding:27px 30px; background:#fffdf8; border:1px solid #d9e1d8;
+  border-radius:22px; box-shadow:0 14px 40px rgba(38,49,47,.05);
+}
+.autism-course-time-label {
+  color:#4d6b5b; font-size:.77rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.1em;
+}
+.autism-course-time strong {
+  color:#263d32; font-size:clamp(2.2rem,3.2vw,3.1rem);
+  font-weight:600; letter-spacing:-.06em; line-height:1.1;
+}
+.autism-course-time>span:last-child { font-size:.86rem; color:#65716a; line-height:1.45; }
+.autism-course-columns { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.autism-course-panel {
+  display:flex; flex-direction:column; padding:clamp(25px,3.5vw,42px);
+  background:#fffdf9; border:1px solid #dce3db; border-radius:22px;
+}
+.autism-course-panel-index {
+  margin:0 0 16px; color:#62816d; font-size:.75rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.12em;
+}
+.autism-course-panel h3,.autism-course-calendar h3,.autism-course-contact h3 {
+  margin:0 0 15px; color:#26312f; font-size:clamp(1.3rem,1.9vw,1.75rem);
+  font-weight:600; line-height:1.25;
+}
+.autism-course-panel>p:not(.autism-course-panel-index):not(.autism-course-panel-note) {
+  margin:0 0 12px; color:#53615a; line-height:1.55;
+}
+.autism-course-list { list-style:none; padding:0; margin:4px 0 18px; display:grid; gap:13px; }
+.autism-course-list li { position:relative; padding-left:27px; color:#42534a; line-height:1.5; }
+.autism-course-list li::before {
+  content:"✓"; position:absolute; left:0; top:2px; display:grid; place-items:center;
+  width:19px; height:19px; border-radius:50%; background:#e1ece2;
+  color:#416d4f; font-size:.75rem; font-weight:800;
+}
+.autism-course-panel-note {
+  margin:auto 0 0; padding:15px 17px; border-radius:13px;
+  background:#f1f4ed; color:#526258; font-size:.88rem; line-height:1.55;
+}
+.autism-course-calendar {
+  margin-top:16px; padding:clamp(24px,3.5vw,40px);
+  border:1px solid #dce3db; border-radius:22px; background:#f8f9f4;
+}
+.autism-course-calendar-heading {
+  display:flex; align-items:end; justify-content:space-between;
+  gap:14px; margin-bottom:24px;
+}
+.autism-course-calendar-heading h3 { margin:0; }
+.autism-course-calendar-heading>span { color:#65716a; font-size:.9rem; }
+.autism-course-dates {
+  display:grid; grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:10px; padding:0; margin:0; list-style:none;
+}
+.autism-course-dates li {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:5px; min-height:116px; padding:14px 6px;
+  border:1px solid #d5e0d5; border-radius:15px; background:#fffdf9;
+}
+.autism-course-date-day { color:#345c46; font-size:clamp(2rem,2.7vw,2.8rem); font-weight:600; line-height:1; letter-spacing:-.04em; }
+.autism-course-date-month { color:#596a5e; font-size:.8rem; font-weight:600; }
+.autism-course-reassurance {
+  display:flex; justify-content:center; flex-wrap:wrap; gap:10px 22px;
+  margin:22px 0 0; color:#526758; font-size:.85rem;
+}
+.autism-course-reassurance span::before { content:"✓"; color:#4b7b56; margin-right:7px; font-weight:700; }
+.autism-course-contact {
+  display:flex; align-items:center; justify-content:space-between; gap:28px;
+  margin-top:16px; padding:clamp(26px,4vw,42px);
+  background:#d8e5d8; border-radius:22px;
+}
+.autism-course-contact h3 { max-width:620px; font-size:clamp(1.5rem,2.3vw,2.2rem); }
+.autism-course-contact p:not(.eyebrow) { margin:0 0 12px; color:#46594c; line-height:1.55; }
+.autism-course-contact address { color:#45634e; font-style:normal; font-weight:600; font-size:.91rem; }
+.autism-course-actions { display:flex; flex-direction:column; align-items:stretch; gap:10px; flex:0 0 auto; }
+.autism-course-actions .button { justify-content:center; text-align:center; }
+.autism-course-inline-link {
+  display:inline-flex; align-items:center; gap:8px; margin-top:19px;
+  color:#416c56; font-size:.9rem; font-weight:700; text-decoration:none;
+  border-bottom:1px solid currentColor; padding-bottom:4px;
+}
+.autism-course-inline-link:hover { color:#244f36; }
+.autism-course-inline-link .ti { font-size:1rem; }
+@media (max-width:920px) {
+  .autism-course-heading { grid-template-columns:1fr; align-items:start; }
+  .autism-course-time { max-width:400px; }
+  .autism-course-contact { flex-direction:column; align-items:stretch; }
+  .autism-course-actions { flex-direction:row; flex-wrap:wrap; }
+}
+@media (max-width:680px) {
+  .autism-course-columns { grid-template-columns:1fr; }
+  .autism-course-dates { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .autism-course-calendar-heading { align-items:start; flex-direction:column; }
+}
+@media (max-width:440px) {
+  .autism-course-dates { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .autism-course-time { padding:22px; }
+  .autism-course-contact { padding:24px 20px; }
+  .autism-course-actions { flex-direction:column; }
+  .autism-course-actions .button { width:100%; }
+}
