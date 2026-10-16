@@ -2043,84 +2043,117 @@ footer {
   }
 }
 
-/* À propos — portrait détouré sur décor sauge */
+/* À propos — portrait d’Erika détouré sur des formes sauge */
 .about-refined {
-  grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);
-  gap:clamp(36px,5vw,84px); align-items:center;
-  padding-top:clamp(70px,8vw,120px); padding-bottom:clamp(70px,8vw,120px);
+  grid-template-columns:minmax(0, 1.05fr) minmax(0, .95fr);
+  gap:clamp(28px, 4vw, 72px);
+  align-items:center;
+  padding-top:clamp(72px, 8vw, 112px);
+  padding-bottom:0;
   background:#fffdf9;
+  overflow:hidden;
 }
-.about-refined .about-copy { position:relative; z-index:2; }
+.about-refined .about-copy { position:relative; z-index:2; padding-bottom:clamp(72px, 8vw, 112px); }
 .about-refined h2 {
-  margin:8px 0 24px; font-family:"Playfair Display",serif;
-  font-size:clamp(2.5rem,4.25vw,4.9rem); line-height:1.04; letter-spacing:-.03em;
+  margin:8px 0 20px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(2.8rem, 4.3vw, 4.8rem);
+  line-height:1.04;
+  letter-spacing:-.03em;
 }
 .about-refined h2 em { font-style:normal; color:#587769; }
-.about-refined .about-lead {
-  max-width:630px; margin:0 0 22px; color:#405b4e;
-  font-size:clamp(1.04rem,1.5vw,1.2rem); font-weight:600; line-height:1.55;
+.about-refined .about-intro {
+  max-width:630px;
+  margin:0;
+  color:#58645e;
+  line-height:1.75;
 }
-.about-refined .about-copy > p:not(.eyebrow):not(.about-lead) {
-  max-width:660px; color:#58645e; line-height:1.75;
+.about-more { margin-top:28px; max-width:630px; }
+.about-more-toggle {
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  cursor:pointer;
+  list-style:none;
 }
-.about-refined .degrees { max-width:650px; margin-top:26px; }
-.about-refined .degrees > div { grid-template-columns:85px 1fr; }
-.about-contact-link { display:inline-flex; align-items:center; gap:12px; margin-top:30px; }
+.about-more-toggle::-webkit-details-marker { display:none; }
+.about-more-toggle:focus-visible { outline:3px solid #91ac9b; outline-offset:4px; }
+.about-more[open] .about-more-toggle .ti { transform:rotate(90deg); }
+.about-more-content { padding:20px 0 0; color:#58645e; }
+.about-more-content p { margin:0; }
+.about-more .degrees { margin-top:18px; }
+.about-more .degrees > div { grid-template-columns:85px 1fr; }
 .about-portrait-stage {
-  position:relative; isolation:isolate;
-  min-height:620px; overflow:hidden; display:flex;
-  align-items:end; justify-content:center;
-  border-radius:40% 40% 26px 26px / 29% 29% 26px 26px;
-  background:radial-gradient(ellipse at 48% 34%,#f7f5ec 0%,#f0f3ec 55%,#e2ece3 100%);
+  position:relative;
+  isolation:isolate;
+  width:100%;
+  min-height:600px;
+  align-self:stretch;
+  overflow:hidden;
+  background:transparent;
+}
+.about-portrait-stage::before {
+  content:"";
+  position:absolute;
+  z-index:-2;
+  width:80%;
+  height:63%;
+  left:3%;
+  top:8%;
+  border-radius:56% 44% 55% 45% / 47% 51% 49% 53%;
+  background:#f2f2eb;
+  transform:rotate(-12deg);
 }
 .about-portrait-shape {
-  position:absolute; z-index:-1;
-  left:6%; right:-10%; bottom:-21%; height:73%;
-  border-radius:53% 47% 0 0 / 58% 58% 0 0;
-  background:linear-gradient(135deg,#dce9de,#b9d1c1);
-  transform:rotate(-8deg);
-}
-.about-refined .about-portrait-photo {
-  position:relative; z-index:1;
-  width:108%; max-width:none; height:auto; max-height:580px;
-  object-fit:contain; object-position:bottom center;
-  border:0; border-radius:0; margin:0 -4% 0;
-  filter:drop-shadow(0 16px 16px rgba(30,55,44,.08));
-}
-.about-refined .about-portrait-photo.about-portrait-fallback {
-  width:82%; max-height:440px; margin:0 auto 72px;
-  border-radius:24px; border:1px solid #d6e3d7;
-  filter:none; box-shadow:0 15px 40px rgba(30,55,44,.12);
+  position:absolute;
+  z-index:-1;
+  width:94%;
+  height:71%;
+  right:-8%;
+  bottom:-21%;
+  border-radius:58% 42% 42% 58% / 55% 51% 49% 45%;
+  background:linear-gradient(145deg,#dce8df,#c0d5c7);
+  transform:rotate(-17deg);
 }
 .about-portrait-quote {
-  position:absolute; z-index:2; top:11%; left:9%;
-  display:flex; flex-direction:column; gap:6px;
-  max-width:210px; color:#48695a;
-  font-family:"Playfair Display",serif; font-style:italic;
-  font-size:clamp(1rem,1.5vw,1.35rem); line-height:1.35;
+  position:absolute;
+  z-index:1;
+  top:14%;
+  left:8%;
+  margin:0;
+  color:#456457;
+  font-family:"Playfair Display",serif;
+  font-style:italic;
+  font-size:clamp(1rem, 1.35vw, 1.3rem);
+  line-height:1.45;
+  transform:rotate(-5deg);
 }
-.about-portrait-quote::before {
-  content:"“"; position:absolute; left:-18px; top:-26px;
-  font-size:3.6rem; line-height:1; color:#9ab5a1; opacity:.6;
+.about-refined .about-portrait-photo {
+  position:absolute;
+  z-index:2;
+  right:-5%;
+  bottom:0;
+  width:auto;
+  max-width:none;
+  height:100%;
+  max-height:none;
+  object-fit:contain;
+  object-position:bottom right;
+  border:0;
+  border-radius:0;
+  filter:drop-shadow(0 14px 18px rgba(33,57,45,.1));
 }
-.about-portrait-caption {
-  position:absolute; z-index:3; bottom:22px; right:26px;
-  display:flex; flex-direction:column; align-items:end;
-  color:#345447; font-weight:700; font-size:.84rem;
-  text-shadow:0 1px 5px rgba(255,255,255,.85);
-}
-.about-portrait-caption small { color:#537165; font-weight:500; font-size:.74rem; }
 @media (max-width:980px) {
-  .about-refined { grid-template-columns:1fr; }
-  .about-portrait-stage { width:100%; max-width:650px; min-height:540px; margin:0 auto; }
+  .about-refined { grid-template-columns:1fr; gap:0; }
+  .about-refined .about-copy { padding-bottom:40px; }
+  .about-portrait-stage { min-height:560px; max-width:680px; margin:0 auto; }
+  .about-refined .about-portrait-photo { right:0; }
 }
 @media (max-width:620px) {
-  .service-card-autism .service-card-cta { width:100%; justify-content:center; }
-  .about-refined { gap:32px; padding-top:64px; padding-bottom:64px; }
-  .about-refined h2 { font-size:clamp(2.3rem,10vw,3.4rem); }
-  .about-portrait-stage { min-height:400px; border-radius:34% 34% 20px 20px / 22% 22% 20px 20px; }
-  .about-refined .about-portrait-photo { width:115%; max-height:380px; }
-  .about-refined .about-portrait-photo.about-portrait-fallback { max-height:310px; margin-bottom:55px; }
-  .about-portrait-quote { top:9%; left:10%; max-width:150px; font-size:.95rem; }
-  .about-portrait-caption { right:18px; bottom:16px; }
+  .about-refined { padding-top:64px; }
+  .about-refined h2 { font-size:clamp(2.4rem, 10vw, 3.4rem); }
+  .about-refined .about-copy { padding-bottom:24px; }
+  .about-portrait-stage { min-height:420px; }
+  .about-refined .about-portrait-photo { right:-9%; height:100%; }
+  .about-portrait-quote { top:10%; left:2%; font-size:.95rem; }
 }
