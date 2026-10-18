@@ -2396,3 +2396,36 @@ footer {
 @media (max-width:440px) {
   .autism-course-dates li { min-height:118px; }
 }
+
+
+/* Cours collectifs : affichage des jours et heures par séance */
+.autism-course-dates li {
+  min-height:168px;
+  padding:16px 7px;
+}
+.autism-course-date-inner { gap:5px; }
+.autism-course-date-weekday {
+  color:#567665;
+  font-size:.75rem;
+  font-weight:700;
+  text-transform:capitalize;
+}
+.autism-course-date-hours {
+  display:block;
+  width:100%;
+  margin-top:7px;
+  padding-top:9px;
+  border-top:1px solid #e0e9e0;
+  color:#345c46;
+  font-size:.79rem;
+  font-weight:700;
+  white-space:nowrap;
+  text-align:center;
+}
+@media (max-width:1100px) {
+  .autism-course-dates { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@media (max-width:440px) {
+  .autism-course-dates { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .autism-course-dates li { min-height:162px; }
+}
