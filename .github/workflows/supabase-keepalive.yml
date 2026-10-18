@@ -1,0 +1,53 @@
+name: Supabase - activité du site
+
+# Les requêtes REST ci-dessous interrogent réellement PostgreSQL.
+# Les requêtes vers une simple page web ou un endpoint /health
+# ne suffisent pas nécessairement à maintenir l'activité de la base.
+on:
+  schedule:
+    # Trois contrôles légers par jour (UTC), hors début d'heure.
+    - cron: "17 7,13,19 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: supabase-keepalive
+  cancel-in-progress: false
+
+jobs:
+  ping-database:
+    name: Vérifier la base Supabase
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    env:
+      SUPABASE_URL: https://wlaypzkiokwknwioxwoq.supabase.co
+      # Clé PUBLIABLE déjà utilisée par le site public casapsy.be.
+      # Ne jamais utiliser ici une clé service_role ou secret.
+      SUPABASE_PUBLISHABLE_KEY: sb_publishable_KC7o5nOGfz4dzQrgUhc1Mg_ATbDqzYI
+
+    steps:
+      - name: Lire un article via PostgREST (aucune écriture)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # La lecture SQL est limitée à une ligne et peut retourner [].
+          # La réponse reste privée dans les logs : seul le code HTTP est affiché.
+          status="$(curl \
+            --silent --show-error \
+            --retry 2 --retry-delay 5 --retry-all-errors \
+            --connect-timeout 10 --max-time 30 \
+            --output /dev/null --write-out '%{http_code}' \
+            --header "apikey: ${SUPABASE_PUBLISHABLE_KEY}" \
+            --header "Accept: application/json" \
+            "${SUPABASE_URL}/rest/v1/articles?select=id&limit=1")"
+
+          if [[ "$status" != "200" ]]; then
+            echo "::error::Supabase a répondu HTTP ${status}. Vérifiez que le projet est actif, que la table articles existe et que sa lecture publique est autorisée."
+            exit 1
+          fi
+
+          echo "OK : requête de lecture PostgreSQL réussie (HTTP 200)."
