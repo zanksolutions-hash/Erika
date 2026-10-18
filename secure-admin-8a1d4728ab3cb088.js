@@ -1,4 +1,5 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+import { setupCourseDateAdmin } from "./admin-course-dates.js";
 
 const SUPABASE_URL = "https://wlaypzkiokwknwioxwoq.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_KC7o5nOGfz4dzQrgUhc1Mg_ATbDqzYI";
@@ -11,6 +12,8 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     detectSessionInUrl: true
   }
 });
+
+const courseAdmin = setupCourseDateAdmin(supabase);
 
 const loginPanel = document.getElementById("loginPanel");
 const loginForm = document.getElementById("loginForm");
@@ -386,6 +389,7 @@ async function showSession(session) {
     setToday();
     await loadArticles();
   } else {
+    courseAdmin.onLogout();
     articles = [];
     resetForm();
   }
