@@ -118,6 +118,7 @@
         <p class="admin-course-intro">Modifiez les dates prévues, ajoutez ou retirez des séances, puis cliquez sur « Enregistrer les dates ». Le calendrier de la page publique sera actualisé automatiquement, sans modifier le site sur GitHub.</p>
 
         <form id="courseDatesForm" class="admin-course-form">
+          <p id="courseDatesMessage" class="admin-message" role="status" aria-live="polite"></p>
           <div class="admin-course-list-heading">
             <h3>Calendrier des séances</h3>
             <span>De 1 à 20 dates</span>
@@ -131,7 +132,6 @@
             <button class="button primary" type="submit" id="courseSaveDates">Enregistrer les dates</button>
             <a class="button secondary" href="autisme-emploi.html#cours-collectifs" target="_blank" rel="noopener">Voir les cours collectifs ↗</a>
           </div>
-          <p id="courseDatesMessage" class="admin-message" role="status" aria-live="polite"></p>
         </form>
       </div>
       <aside class="admin-panel admin-course-help">
