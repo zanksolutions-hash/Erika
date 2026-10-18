@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20261006-4">
-  <link rel="stylesheet" href="admin-secure.css?v=20261006-4">
+  <link rel="stylesheet" href="admin-secure.css?v=20261018-course-dates">
   <style>
     [hidden] { display: none !important; }
   </style>
@@ -20,7 +20,7 @@
       <img class="admin-login-logo" src="assets/logo-psychologie-transparent.png" alt="">
       <p class="eyebrow">Administration</p>
       <h1>Connexion</h1>
-      <p>Accès réservé à l’administration des articles.</p>
+      <p>Accès réservé à la gestion des articles et des cours collectifs.</p>
 
       <label>
         Adresse e-mail
@@ -41,8 +41,8 @@
     <header class="admin-header">
       <div>
         <p class="eyebrow">Administration sécurisée</p>
-        <h1>Gérer les articles</h1>
-        <p>Publiez, modifiez ou supprimez un article sans passer par GitHub.</p>
+        <h1>Gérer le site</h1>
+        <p>Gérez les articles et les dates des cours collectifs sans passer par GitHub.</p>
       </div>
       <div class="admin-session-actions">
         <span id="sessionEmail" class="admin-session-email"></span>
@@ -51,7 +51,12 @@
       </div>
     </header>
 
-    <main class="admin-layout">
+    <nav class="admin-tabs" role="tablist" aria-label="Rubriques de l’administration">
+      <button id="articlesTab" class="admin-tab" type="button" role="tab" aria-controls="articlesPanel" aria-selected="true">Articles</button>
+      <button id="coursesTab" class="admin-tab" type="button" role="tab" aria-controls="coursesPanel" aria-selected="false" tabindex="-1">Cours collectifs</button>
+    </nav>
+
+    <main class="admin-layout" id="articlesPanel" role="tabpanel" aria-labelledby="articlesTab">
       <section class="admin-panel">
         <form id="articleForm" class="article-form">
           <input type="hidden" id="articleId">
@@ -105,8 +110,40 @@
         <div id="adminArticleList" class="admin-article-list"></div>
       </aside>
     </main>
+
+    <section class="admin-courses-layout" id="coursesPanel" role="tabpanel" aria-labelledby="coursesTab" hidden>
+      <div class="admin-panel admin-course-panel">
+        <p class="eyebrow">Cours collectifs · Autisme & emploi</p>
+        <h2>Modifier les dates des séances</h2>
+        <p class="admin-course-intro">Modifiez les dates prévues, ajoutez ou retirez des séances, puis cliquez sur « Enregistrer les dates ». Le calendrier de la page publique sera actualisé automatiquement, sans modifier le site sur GitHub.</p>
+
+        <form id="courseDatesForm" class="admin-course-form">
+          <div class="admin-course-list-heading">
+            <h3>Calendrier des séances</h3>
+            <span>De 1 à 20 dates</span>
+          </div>
+          <div id="courseDatesRows" class="admin-course-rows"></div>
+          <div class="admin-course-actions">
+            <button class="button secondary" type="button" id="courseAddDate">+ Ajouter une date</button>
+            <button class="button secondary" type="button" id="courseReloadDates">Recharger</button>
+          </div>
+          <div class="admin-course-save">
+            <button class="button primary" type="submit" id="courseSaveDates">Enregistrer les dates</button>
+            <a class="button secondary" href="autisme-emploi.html#cours-collectifs" target="_blank" rel="noopener">Voir les cours collectifs ↗</a>
+          </div>
+          <p id="courseDatesMessage" class="admin-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <aside class="admin-panel admin-course-help">
+        <p class="eyebrow">À savoir</p>
+        <h2>Publication simplifiée</h2>
+        <p>Les dates enregistrées remplacent celles du calendrier public. Elles apparaissent dans l’ordre chronologique, avec leur mois et leur année.</p>
+        <p>L’horaire reste fixé de <strong>14 h à 16 h</strong>. Si toutes les séances ont lieu le même jour de la semaine, ce jour est indiqué automatiquement.</p>
+        <p>Les articles et les autres contenus du site ne sont pas modifiés.</p>
+      </aside>
+    </section>
   </div>
 
-  <script type="module" src="secure-admin-8a1d4728ab3cb088.js?v=20261006-7"></script>
+  <script type="module" src="secure-admin-8a1d4728ab3cb088.js?v=20261018-course-dates"></script>
 </body>
 </html>
