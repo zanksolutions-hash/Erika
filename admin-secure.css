@@ -216,3 +216,16 @@
     text-align:center;
   }
 }
+
+/* Le statut Supabase reste visible avant les champs du calendrier. */
+.admin-course-form .admin-message:empty { display:none; }
+.admin-course-form .admin-message:not(:empty) {
+  margin:0;
+  padding:12px 15px;
+  border:1px solid #d6e0d9;
+  border-left:3px solid #668777;
+  border-radius:10px;
+  background:#f2f7f3;
+  color:#344c40;
+  line-height:1.55;
+}
