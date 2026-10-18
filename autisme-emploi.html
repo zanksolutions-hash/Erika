@@ -40,7 +40,7 @@
             <p>Des cours collectifs pour adultes avec autisme, adaptés à vos besoins et à votre rythme, afin de vous accompagner dans vos démarches professionnelles.</p>
           </div>
           <div class="autism-course-time">
-            <span class="autism-course-time-label">Mercredi après-midi</span>
+            <span class="autism-course-time-label" id="courseWeekdayLabel">Mercredi après-midi</span>
             <strong>14 h – 16 h</strong>
             <span>Horaire pouvant être adapté si besoin</span>
           </div>
@@ -76,15 +76,15 @@
               <p class="eyebrow">Calendrier</p>
               <h3 id="autism-course-calendar-title">Les six dates prévues</h3>
             </div>
-            <span>Le mercredi, de 14 h à 16 h</span>
+            <span id="courseCalendarTime">Le mercredi, de 14 h à 16 h</span>
           </div>
-          <ol class="autism-course-dates">
-            <li><span class="autism-course-date-day">25</span><span class="autism-course-date-month">Novembre</span></li>
-            <li><span class="autism-course-date-day">02</span><span class="autism-course-date-month">Décembre</span></li>
-            <li><span class="autism-course-date-day">09</span><span class="autism-course-date-month">Décembre</span></li>
-            <li><span class="autism-course-date-day">16</span><span class="autism-course-date-month">Décembre</span></li>
-            <li><span class="autism-course-date-day">06</span><span class="autism-course-date-month">Janvier</span></li>
-            <li><span class="autism-course-date-day">13</span><span class="autism-course-date-month">Janvier</span></li>
+          <ol class="autism-course-dates" id="courseDatesList">
+            <li><time class="autism-course-date-inner" datetime="2026-11-25"><span class="autism-course-date-day">25</span><span class="autism-course-date-month">novembre</span><span class="autism-course-date-year">2026</span></time></li>
+            <li><time class="autism-course-date-inner" datetime="2026-12-02"><span class="autism-course-date-day">02</span><span class="autism-course-date-month">décembre</span><span class="autism-course-date-year">2026</span></time></li>
+            <li><time class="autism-course-date-inner" datetime="2026-12-09"><span class="autism-course-date-day">09</span><span class="autism-course-date-month">décembre</span><span class="autism-course-date-year">2026</span></time></li>
+            <li><time class="autism-course-date-inner" datetime="2026-12-16"><span class="autism-course-date-day">16</span><span class="autism-course-date-month">décembre</span><span class="autism-course-date-year">2026</span></time></li>
+            <li><time class="autism-course-date-inner" datetime="2027-01-06"><span class="autism-course-date-day">06</span><span class="autism-course-date-month">janvier</span><span class="autism-course-date-year">2027</span></time></li>
+            <li><time class="autism-course-date-inner" datetime="2027-01-13"><span class="autism-course-date-day">13</span><span class="autism-course-date-month">janvier</span><span class="autism-course-date-year">2027</span></time></li>
           </ol>
           <p class="autism-course-reassurance"><span>Groupe à taille humaine</span><span>Respect du rythme de chacun</span><span>Confidentialité garantie</span></p>
         </div>
@@ -201,5 +201,6 @@
 
   <footer style="position:relative;padding-bottom:78px;"><div class="footer-brand"><img src="assets/logo-psychologie-transparent.png" alt=""><div><strong>Erika Casa</strong><p>Psychologue du travail · Manage</p><p>TVA BE1033.020.603</p></div></div><div class="footer-links"><a href="index.html#accompagnements">Accompagnements</a><a href="autisme-emploi.html">Autisme & emploi</a><a href="articles.html">Articles</a><a href="index.html#contact">Contact</a><a href="mentions-legales.html">Mentions légales</a></div><p class="footer-credit">Site créé par <a href="https://zanksolutions.be/#services" target="_blank" rel="noopener">ZANK Solutions</a><span class="footer-credit-details"> · TVA BE1033.509.066</span></p></footer>
   <script type="module" src="app.js"></script>
+  <script type="module" src="course-dates-public.js?v=20261018-1"></script>
 </body>
 </html>
