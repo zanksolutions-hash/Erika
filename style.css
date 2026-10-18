@@ -2373,3 +2373,26 @@ footer {
   .about-refined .about-portrait-photo { right:-16%; height:96%; }
   .about-refined .about-portrait-quote { max-width:105px; font-size:1.1rem; }
 }
+
+
+/* Dates des cours collectifs : mois et année accessibles, affichage responsive. */
+.autism-course-date-inner {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  width:100%;
+  color:inherit;
+  text-decoration:none;
+}
+.autism-course-date-month { text-transform:capitalize; }
+.autism-course-date-year {
+  color:#6b7b6e;
+  font-size:.75rem;
+  font-weight:600;
+  letter-spacing:.02em;
+}
+@media (max-width:440px) {
+  .autism-course-dates li { min-height:118px; }
+}
