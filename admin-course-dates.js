@@ -112,15 +112,65 @@ export function setupCourseDateAdmin(supabase) {
   }
 
   async function readSavedDates() {
-    const { data } = supabase.storage.from(COURSE_STORAGE_BUCKET).getPublicUrl(COURSE_STORAGE_PATH);
-    const url = new URL(data.publicUrl);
+    const storage = supabase.storage.from(COURSE_STORAGE_BUCKET);
+    const { data: publicData } = storage.getPublicUrl(COURSE_STORAGE_PATH);
+    if (!publicData?.publicUrl) {
+      throw new Error("Impossible d'obtenir l'adresse du calendrier dans Supabase Storage.");
+    }
+
+    const url = new URL(publicData.publicUrl);
     url.searchParams.set("v", String(Date.now()));
-    const response = await fetch(url.toString(), { cache: "no-store" });
-    if (response.status === 404) return { dates: [...DEFAULT_COURSE_DATES], initial: true };
-    if (!response.ok) throw new Error(`Lecture impossible (HTTP ${response.status}).`);
-    const dates = parseCourseDates(await response.json());
-    if (!dates) throw new Error("Les dates enregistrées ne sont pas valides.");
-    return { dates, initial: false };
+    let response;
+    try {
+      response = await fetch(url.toString(), { cache: "no-store" });
+    } catch {
+      throw new Error("Connexion à Supabase impossible. Vérifiez votre connexion et réessayez.");
+    }
+
+    if (response.ok) {
+      let payload;
+      try {
+        payload = await response.json();
+      } catch {
+        throw new Error("Le calendrier Supabase contient un fichier JSON illisible.");
+      }
+      const dates = parseCourseDates(payload);
+      if (!dates) throw new Error("Les dates enregistrées dans Supabase ne sont pas valides.");
+      return { dates, initial: false };
+    }
+
+    // Supabase Storage peut renvoyer HTTP 400 (« Object not found »)
+    // ou 404 pour un fichier absent. Vérifier le dossier dans Storage
+    // plutôt que de considérer toute erreur 400 comme une absence.
+    if (response.status === 400 || response.status === 404) {
+      const { data: objects, error: listError } = await storage.list("site", {
+        limit: 100,
+        search: "course-dates.json"
+      });
+      if (listError) {
+        throw new Error(
+          "Impossible de vérifier le calendrier dans Supabase Storage : " +
+          listError.message + ". Vérifiez le bucket public « article-images » et ses permissions."
+        );
+      }
+      if (!Array.isArray(objects)) {
+        throw new Error("Supabase n'a pas renvoyé la liste des fichiers du calendrier.");
+      }
+      if (!objects.some(object => object.name === "course-dates.json")) {
+        return { dates: [...DEFAULT_COURSE_DATES], initial: true };
+      }
+      // Le fichier existe, mais le lien public ne fonctionne pas :
+      // ne pas remplacer silencieusement les dates déjà enregistrées.
+      throw new Error(
+        "Le calendrier existe dans Supabase, mais sa lecture publique est bloquée. " +
+        "Vérifiez que le bucket « article-images » est public."
+      );
+    }
+
+    throw new Error(
+      "Lecture du calendrier impossible (HTTP " + response.status +
+      "). Vérifiez les permissions du stockage Supabase."
+    );
   }
 
   async function loadDates() {
