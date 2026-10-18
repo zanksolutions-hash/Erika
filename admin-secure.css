@@ -229,3 +229,76 @@
   color:#344c40;
   line-height:1.55;
 }
+
+
+/* Cours collectifs : jours et heures modifiables */
+.admin-course-bulk {
+  display:grid;
+  gap:13px;
+  padding:17px 18px;
+  background:#f2f6f2;
+  border:1px solid #d7e2d9;
+  border-radius:16px;
+}
+.admin-course-bulk-title {
+  margin:0;
+  color:var(--ink);
+  font-weight:700;
+  font-size:.94rem;
+}
+.admin-course-bulk-fields {
+  display:flex;
+  align-items:end;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.admin-course-bulk-fields label {
+  display:grid;
+  gap:7px;
+  flex:1 1 115px;
+  min-width:0;
+  font-weight:700;
+  font-size:.86rem;
+}
+.admin-course-bulk-fields .button { min-height:44px; }
+.admin-course-bulk-fields input[type="time"],
+.admin-course-row input[type="time"] {
+  display:block;
+  width:100%;
+  min-width:0;
+  padding:11px 12px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid #cbd9d0;
+  border-radius:11px;
+  font:inherit;
+  font-size:1rem;
+  color-scheme:light;
+}
+.admin-course-row {
+  grid-template-columns:minmax(160px,1.35fr) minmax(90px,.78fr) minmax(90px,.78fr) auto;
+  align-items:center;
+  gap:10px;
+}
+.admin-course-row .admin-course-date-field { min-width:0; }
+.admin-course-weekday {
+  color:#587267;
+  font-size:.79rem;
+  font-weight:600;
+  line-height:1.4;
+  min-height:1.2em;
+}
+.admin-course-row .admin-course-remove { align-self:center; margin-top:6px; }
+@media (max-width:670px) {
+  .admin-course-row {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:13px;
+  }
+  .admin-course-date-field { grid-column:1 / -1; }
+  .admin-course-row .admin-course-remove {
+    grid-column:1 / -1;
+    justify-self:start;
+    margin-top:0;
+  }
+  .admin-course-bulk-fields .button { flex:1 1 100%; }
+}
