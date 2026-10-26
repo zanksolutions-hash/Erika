@@ -19,31 +19,10 @@ using (
   and name = 'site/course-dates.json'
 );
 
--- L'interface d'administration doit être connectée pour créer le calendrier.
 drop policy if exists "Authenticated create collective course dates" on storage.objects;
-create policy "Authenticated create collective course dates"
-on storage.objects
-for insert
-to authenticated
-with check (
-  bucket_id = 'article-images'
-  and name = 'site/course-dates.json'
-);
-
--- Nécessaire pour le remplacement des dates via upload(..., { upsert: true }).
 drop policy if exists "Authenticated update collective course dates" on storage.objects;
-create policy "Authenticated update collective course dates"
-on storage.objects
-for update
-to authenticated
-using (
-  bucket_id = 'article-images'
-  and name = 'site/course-dates.json'
-)
-with check (
-  bucket_id = 'article-images'
-  and name = 'site/course-dates.json'
-);
+-- L'écriture du calendrier est réservée à l'administratrice :
+-- voir supabase-admin-only.sql.
 
 -- Aucun fichier JSON initial n'est créé par ce script.
 -- L'administration propose les six dates par défaut si l'objet est absent,

@@ -33,12 +33,8 @@ to public
 using (status = 'published');
 
 drop policy if exists "Authenticated manage articles" on public.articles;
-create policy "Authenticated manage articles"
-on public.articles
-for all
-to authenticated
-using (true)
-with check (true);
+-- Les droits d'écriture (réservés à l'administratrice) sont définis dans
+-- supabase-admin-only.sql, à exécuter après ce script.
 
 insert into storage.buckets (id, name, public)
 values ('article-images', 'article-images', true)
@@ -52,23 +48,7 @@ to public
 using (bucket_id = 'article-images');
 
 drop policy if exists "Authenticated upload article images" on storage.objects;
-create policy "Authenticated upload article images"
-on storage.objects
-for insert
-to authenticated
-with check (bucket_id = 'article-images');
-
 drop policy if exists "Authenticated update article images" on storage.objects;
-create policy "Authenticated update article images"
-on storage.objects
-for update
-to authenticated
-using (bucket_id = 'article-images')
-with check (bucket_id = 'article-images');
-
 drop policy if exists "Authenticated delete article images" on storage.objects;
-create policy "Authenticated delete article images"
-on storage.objects
-for delete
-to authenticated
-using (bucket_id = 'article-images');
+-- Les droits d'écriture (réservés à l'administratrice) sont définis dans
+-- supabase-admin-only.sql, à exécuter après ce script.
