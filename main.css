@@ -311,3 +311,10 @@ fieldset.field { border: 0; padding: 0; margin: 0 0 16px; }
 .article-body ul { padding-left: 1.2em; margin: 0 0 1.3em; }
 .article-body li { margin-bottom: .4em; }
 .quote { margin: 2em 0; padding: 22px 26px; border-left: 3px solid var(--clay); background: var(--rose); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font: italic 400 1.25rem/1.5 var(--serif); color: var(--sage-deep); }
+.byline { color: var(--muted); margin: -.2em 0 1em; }
+.byline a { color: var(--sage-deep); font-weight: 600; text-decoration: none; }
+.author-box { display: flex; gap: 18px; align-items: center; margin: 48px 0 0; padding: 22px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); font-size: .98rem; }
+.author-box img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: top; background: var(--mint); flex: none; }
+.author-box strong { display: block; font: 600 1.1rem var(--serif); }
+.author-box span { display: block; color: var(--muted); margin: 2px 0 6px; }
+.author-box a { color: var(--sage-deep); font-weight: 600; text-decoration: none; }

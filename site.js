@@ -18,6 +18,15 @@ const STATIC_ARTICLES = [
 ];
 
 const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const addJsonLd = data => {
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify(data);
+  document.head.append(script);
+};
+// Décalage horaire belge (+01:00 en hiver, +02:00 en été) pour une date donnée.
+const brusselsOffset = iso => new Intl.DateTimeFormat("en", { timeZone: "Europe/Brussels", timeZoneName: "longOffset" })
+  .formatToParts(new Date(`${iso}T12:00:00Z`)).find(p => p.type === "timeZoneName").value.replace("GMT", "") || "+00:00";
 const formatDate = iso => iso ? new Intl.DateTimeFormat("fr-BE", { day: "numeric", month: "long", year: "numeric" }).format(new Date(`${iso}T12:00:00`)) : "";
 
 // Navigation
@@ -126,6 +135,22 @@ if (articleRoot) {
   } else {
     document.title = `${article.title} | Erika Casa`;
     document.querySelector('meta[name="description"]')?.setAttribute("content", article.excerpt || "");
+    const url = `https://casapsy.be/article-dynamique.html?id=${encodeURIComponent(article.id)}`;
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href", url);
+    addJsonLd({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: article.title,
+      description: article.excerpt || undefined,
+      image: article.image_url || undefined,
+      datePublished: article.publication_date,
+      dateModified: (article.updated_at || article.publication_date || "").slice(0, 10),
+      inLanguage: "fr-BE",
+      articleSection: article.category || undefined,
+      author: { "@type": "Person", "@id": "https://casapsy.be/#erika-casa", name: "Erika Casa", jobTitle: "Psychologue du travail" },
+      publisher: { "@type": "ProfessionalService", "@id": "https://casapsy.be/#cabinet", name: "Erika Casa – Psychologue du travail" },
+      mainEntityOfPage: url
+    });
     const paragraphs = String(article.body || "").split(/\n\s*\n/).map(b => b.trim()).filter(Boolean)
       .map(b => `<p>${escapeHTML(b).replace(/\n/g, "<br>")}</p>`).join("");
     const source = article.source_url
@@ -164,6 +189,24 @@ if (courseList) {
       <span class="when">${weekday[0].toUpperCase()}${weekday.slice(1)} ${d.getDate()} ${month}<small>${courseTimeRange(s.start_time, s.end_time)}</small></span>
     </li>`;
   }).join("") : `<li>Les prochaines dates seront bientôt annoncées.</li>`;
+
+  if (courseList.dataset.showPast) {
+    upcoming.forEach(s => addJsonLd({
+      "@context": "https://schema.org",
+      "@type": "EducationEvent",
+      name: "Cours collectif Autisme & emploi",
+      description: "Atelier en petit groupe pour adultes autistes : habiletés sociales, fonctions exécutives, gestion émotionnelle et démarches professionnelles.",
+      startDate: `${s.date}T${s.start_time}:00${brusselsOffset(s.date)}`,
+      endDate: `${s.date}T${s.end_time}:00${brusselsOffset(s.date)}`,
+      eventStatus: "https://schema.org/EventScheduled",
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      location: { "@type": "Place", name: "Cabinet Erika Casa", address: { "@type": "PostalAddress", streetAddress: "Grand'Rue 56", postalCode: "7170", addressLocality: "Manage", addressCountry: "BE" } },
+      organizer: { "@type": "ProfessionalService", "@id": "https://casapsy.be/#cabinet", name: "Erika Casa – Psychologue du travail", url: "https://casapsy.be/" },
+      performer: { "@type": "Person", name: "Erika Casa" },
+      image: "https://casapsy.be/assets/illustration-autisme-collectif.webp",
+      url: "https://casapsy.be/autisme-emploi.html#cours-collectifs"
+    }));
+  }
 
   const next = upcoming[0];
   document.querySelectorAll("[data-next-course]").forEach(el => {

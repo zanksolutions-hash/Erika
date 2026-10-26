@@ -12,6 +12,8 @@
   <meta property="og:description" content="Stress, burnout, réorientation, autisme & emploi : un accompagnement bienveillant et concret, à votre rythme.">
   <meta property="og:url" content="https://casapsy.be/">
   <meta property="og:image" content="https://casapsy.be/assets/erika-casa.jpeg">
+  <meta property="og:site_name" content="Erika Casa – Psychologue du travail">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#2f4a41">
   <link rel="icon" href="assets/logo-psychologie-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,37 +21,205 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap">
   <link rel="stylesheet" href="main.css">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["ProfessionalService", "LocalBusiness"],
-    "@id": "https://casapsy.be/#cabinet",
-    "name": "Erika Casa – Psychologue du travail",
-    "url": "https://casapsy.be/",
-    "image": "https://casapsy.be/assets/erika-casa.jpeg",
-    "logo": "https://casapsy.be/assets/logo-psychologie-transparent.png",
-    "telephone": "+32472376785",
-    "email": "erika.casa.pro@hotmail.com",
-    "vatID": "BE1033020603",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Grand'Rue 56",
-      "postalCode": "7170",
-      "addressLocality": "Manage",
-      "addressRegion": "Hainaut",
-      "addressCountry": "BE"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://casapsy.be/#site",
+      "url": "https://casapsy.be/",
+      "name": "Erika Casa – Psychologue du travail",
+      "inLanguage": "fr-BE",
+      "publisher": {
+        "@id": "https://casapsy.be/#cabinet"
+      }
     },
-    "areaServed": ["Manage", "La Louvière", "Seneffe", "Morlanwelz", "Binche", "Charleroi", "Hainaut"],
-    "founder": {
+    {
+      "@type": [
+        "ProfessionalService",
+        "LocalBusiness"
+      ],
+      "@id": "https://casapsy.be/#cabinet",
+      "name": "Erika Casa – Psychologue du travail",
+      "url": "https://casapsy.be/",
+      "description": "Cabinet de psychologie du travail à Manage : stress, burnout, réorientation professionnelle, bien-être au travail et accompagnement vers l'emploi des adultes autistes.",
+      "image": "https://casapsy.be/assets/erika-casa-detouree.webp",
+      "logo": "https://casapsy.be/assets/logo-psychologie-transparent.png",
+      "telephone": "+32472376785",
+      "email": "erika.casa.pro@hotmail.com",
+      "vatID": "BE1033020603",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Grand'Rue 56",
+        "postalCode": "7170",
+        "addressLocality": "Manage",
+        "addressRegion": "Hainaut",
+        "addressCountry": "BE"
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Grand%27Rue+56+7170+Manage",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Manage"
+        },
+        {
+          "@type": "City",
+          "name": "La Louvière"
+        },
+        {
+          "@type": "City",
+          "name": "Seneffe"
+        },
+        {
+          "@type": "City",
+          "name": "Morlanwelz"
+        },
+        {
+          "@type": "City",
+          "name": "Binche"
+        },
+        {
+          "@type": "City",
+          "name": "Charleroi"
+        },
+        {
+          "@type": "City",
+          "name": "Nivelles"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Hainaut"
+        }
+      ],
+      "founder": {
+        "@id": "https://casapsy.be/#erika-casa"
+      },
+      "employee": {
+        "@id": "https://casapsy.be/#erika-casa"
+      },
+      "knowsLanguage": "fr",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Accompagnements",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gestion du stress et de la surcharge mentale",
+              "description": "Identifier les facteurs de tension, comprendre leurs effets et retrouver des repères plus soutenables.",
+              "provider": {
+                "@id": "https://casapsy.be/#cabinet"
+              },
+              "areaServed": "Manage"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Accompagnement du burnout",
+              "description": "Reconnaître les signaux d'alerte de l'épuisement professionnel et reconstruire un équilibre.",
+              "provider": {
+                "@id": "https://casapsy.be/#cabinet"
+              },
+              "areaServed": "Manage"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Réorientation professionnelle",
+              "description": "Faire le point sur son parcours, clarifier ses priorités et envisager une évolution professionnelle qui a plus de sens.",
+              "provider": {
+                "@id": "https://casapsy.be/#cabinet"
+              },
+              "areaServed": "Manage"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Bien-être au travail",
+              "description": "Comprendre les difficultés rencontrées dans l'environnement professionnel et identifier des ajustements adaptés.",
+              "provider": {
+                "@id": "https://casapsy.be/#cabinet"
+              },
+              "areaServed": "Manage"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Autisme et emploi – job coaching",
+              "description": "Accompagnement individuel et cours collectifs vers l'emploi pour adultes autistes.",
+              "provider": {
+                "@id": "https://casapsy.be/#cabinet"
+              },
+              "areaServed": "Manage"
+            }
+          }
+        ]
+      }
+    },
+    {
       "@type": "Person",
+      "@id": "https://casapsy.be/#erika-casa",
       "name": "Erika Casa",
       "jobTitle": "Psychologue du travail",
+      "description": "Psychologue du travail et job coach à Manage, spécialisée dans l'accompagnement des parcours professionnels et des personnes avec un trouble du spectre de l'autisme.",
+      "image": "https://casapsy.be/assets/erika-casa-detouree.webp",
+      "url": "https://casapsy.be/#a-propos",
+      "worksFor": {
+        "@id": "https://casapsy.be/#cabinet"
+      },
       "alumniOf": [
-        { "@type": "CollegeOrUniversity", "name": "Université de Mons (UMONS)" },
-        { "@type": "CollegeOrUniversity", "name": "Université libre de Bruxelles (ULB)" }
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Université de Mons (UMONS)"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Université libre de Bruxelles (ULB)"
+        }
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Master",
+          "name": "Master en Psychologie du travail",
+          "recognizedBy": {
+            "@type": "CollegeOrUniversity",
+            "name": "UMONS"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Master",
+          "name": "Master en Gestion des risques et du bien-être au travail",
+          "recognizedBy": {
+            "@type": "CollegeOrUniversity",
+            "name": "ULB"
+          }
+        }
+      ],
+      "knowsAbout": [
+        "Psychologie du travail",
+        "Burnout",
+        "Stress au travail",
+        "Surcharge mentale",
+        "Réorientation professionnelle",
+        "Bien-être au travail",
+        "Trouble du spectre de l'autisme",
+        "Job coaching",
+        "Insertion professionnelle"
       ]
-    },
-    "knowsAbout": ["Psychologie du travail", "Burnout", "Stress au travail", "Réorientation professionnelle", "Autisme et emploi", "Job coaching"]
-  }
+    }
+  ]
+}
   </script>
   <script type="application/ld+json">
   {

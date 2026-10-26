@@ -1,3 +1,32 @@
+# Moteurs de recherche et assistants IA bienvenus
 User-agent: *
+Allow: /
 Disallow: /admin.html
+Disallow: /gestion-
+Disallow: /espace-
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://casapsy.be/sitemap.xml
