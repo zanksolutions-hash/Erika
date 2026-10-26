@@ -1,27 +1,108 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="fr-BE">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Articles et ressources d’Erika Casa autour de la psychologie du travail, du burnout, de la réorientation et de l’autisme.">
-  <title>Articles & ressources | Erika Casa</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Articles – Burnout, réorientation, autisme et travail | Erika Casa</title>
+  <meta name="description" content="Articles et ressources d'Erika Casa, psychologue du travail à Manage : burnout, stress, réorientation professionnelle, autisme et emploi.">
+  <link rel="canonical" href="https://casapsy.be/articles.html">
+  <meta property="og:title" content="Articles – Burnout, réorientation, autisme et travail | Erika Casa">
+  <meta property="og:description" content="Articles et ressources d'Erika Casa, psychologue du travail à Manage : burnout, stress, réorientation professionnelle, autisme et emploi.">
+  <meta property="og:image" content="https://casapsy.be/assets/erika-casa.jpeg">
+  <meta name="theme-color" content="#2f4a41">
+  <link rel="icon" href="assets/logo-psychologie-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .footer-credit{position:absolute;right:clamp(20px,7vw,110px);bottom:16px;margin:0;text-align:right;color:#c8d0cd;font-size:.82rem;white-space:nowrap}.footer-credit a{font-weight:700}.footer-credit-details{display:inline}@media(max-width:760px){.footer-credit-details{display:none}.footer-credit{white-space:normal}}
-  </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.49.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap">
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <header class="site-header"><a href="index.html" class="brand"><img src="assets/logo-psychologie-transparent.png" alt="" class="brand-logo"><span class="brand-copy"><strong>Erika Casa</strong><small>Psychologue du travail</small></span></a><button class="menu-button" id="menuButton" aria-label="Ouvrir le menu"><i class="ti ti-menu-2" aria-hidden="true"></i></button><nav class="nav" id="nav"><a href="index.html">Accueil</a><a href="index.html#accompagnements">Accompagnements</a><a href="index.html#apropos">À propos</a><a href="articles.html" aria-current="page">Articles</a><a href="autisme-emploi.html#cours-collectifs">Cours collectifs</a><a class="nav-cta" href="index.html#contact">Contact</a></nav></header>
-  <main><section class="articles-hero"><p class="eyebrow">Articles & ressources</p><h1>Comprendre, s’informer et ouvrir la réflexion.</h1><p>Retrouvez ici les publications d’Erika Casa autour de la psychologie du travail, du burnout, de la réorientation professionnelle, de l’autisme et de l’inclusion.</p></section><section class="section articles-library"><div class="simple-article-list articles-page-list" id="dynamicArticlesPage"></div><div class="simple-article-list articles-page-list"><a class="simple-article-link" href="articles/diagnostic-autisme-adulte.html"><div><p class="article-meta">Autisme · Diagnostic adulte · Accompagnement</p><span>Un diagnostic, pas une définition</span></div><span class="simple-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span></a><a class="simple-article-link" href="articles/autisme.html"><div><p class="article-meta">Autisme · Inclusion</p><span>Autisme : comprendre, respecter et favoriser l’inclusion</span></div><span class="simple-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span></a><a class="simple-article-link" href="articles/burnout.html"><div><p class="article-meta">Psychologie du travail</p><span>Burnout : reconnaître les signes d’épuisement</span></div><span class="simple-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span></a><a class="simple-article-link" href="articles/reorientation.html"><div><p class="article-meta">Parcours professionnel</p><span>Faire le point sur son avenir professionnel</span></div><span class="simple-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span></a></div></section></main>
-  <footer style="position:relative;padding-bottom:78px;">
-    <div class="footer-brand"><img src="assets/logo-psychologie-transparent.png" alt=""><div><strong>Erika Casa</strong><p>Psychologue du travail · Manage</p><p>TVA BE1033.020.603</p></div></div>
-    <div class="footer-links"><a href="index.html">Accueil</a><a href="articles.html">Articles</a><a href="index.html#contact">Contact</a><a href="mentions-legales.html">Mentions légales</a></div>
-    <p class="footer-credit">Site créé par <a href="https://zanksolutions.be/#services" target="_blank" rel="noopener">ZANK Solutions</a><span class="footer-credit-details"> · TVA BE1033.509.066</span></p>
-  </footer>
-  <script type="module" src="articles.js"></script>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Navigation principale">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-psychologie-transparent.png" alt="" width="44" height="44">
+      <span><strong>Erika Casa</strong><small>Psychologue du travail · Manage</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#accompagnements">Accompagnements</a></li>
+      <li><a href="autisme-emploi.html">Autisme &amp; emploi</a></li>
+      <li><a href="index.html#a-propos">À propos</a></li>
+      <li><a href="articles.html" aria-current="page">Articles</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-primary nav-cta" href="index.html#rendez-vous">Prendre rendez-vous</a>
+    <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Articles &amp; ressources</span>
+      <h1>Comprendre pour mieux avancer</h1>
+      <p class="lead">Burnout, réorientation, autisme et inclusion au travail : des repères clairs pour mieux comprendre votre situation.</p>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="filters" data-filters role="group" aria-label="Filtrer par thème"></div>
+      <div class="articles" data-articles></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <span class="eyebrow">Informations &amp; inscriptions</span>
+        <h2>Prenons le temps d'échanger.</h2>
+        <p>Voyons ensemble si cet accompagnement correspond à vos besoins. Grand'Rue 56 · 7170 Manage.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="index.html#rendez-vous">Demander des informations</a>
+          <a class="btn btn-ghost" href="tel:+32472376785">Appeler le 0472 37 67 85</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Erika Casa</h4>
+        <p>Psychologue du travail à Manage.<br>Stress, burnout, réorientation, autisme &amp; emploi.</p>
+        <p>Grand'Rue 56, 7170 Manage<br>TVA BE1033.020.603</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html#accompagnements">Accompagnements</a></li>
+          <li><a href="autisme-emploi.html">Autisme &amp; emploi</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+32472376785">+32 472 37 67 85</a></li>
+          <li><a href="mailto:erika.casa.pro@hotmail.com">erika.casa.pro@hotmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Erika Casa</span>
+      <span>Site créé par ZANK Solutions</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-ghost" href="tel:+32472376785">Appeler</a>
+  <a class="btn btn-primary" href="index.html#rendez-vous">Rendez-vous</a>
+</div>
+
+<script type="module" src="site.js"></script>
 </body>
 </html>

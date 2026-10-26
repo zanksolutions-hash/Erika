@@ -1,206 +1,195 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="fr-BE">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Accompagnement vers l'emploi pour les personnes avec autisme par Erika Casa, psychologue du travail et job coach : accompagnement individuel, collectif et outils concrets." />
-  <title>Autisme & emploi | Erika Casa</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Autisme &amp; emploi – Job coaching et cours collectifs à Manage | Erika Casa</title>
+  <meta name="description" content="Accompagnement vers l'emploi pour adultes autistes à Manage : séances individuelles, cours collectifs, CV, entretiens, projet professionnel. Par Erika Casa, psychologue du travail et job coach.">
+  <link rel="canonical" href="https://casapsy.be/autisme-emploi.html">
+  <meta property="og:title" content="Autisme &amp; emploi – Job coaching et cours collectifs à Manage | Erika Casa">
+  <meta property="og:description" content="Accompagnement vers l'emploi pour adultes autistes à Manage : séances individuelles, cours collectifs, CV, entretiens, projet professionnel. Par Erika Casa, psychologue du travail et job coach.">
+  <meta property="og:image" content="https://casapsy.be/assets/erika-casa.jpeg">
+  <meta name="theme-color" content="#2f4a41">
+  <link rel="icon" href="assets/logo-psychologie-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.49.0/dist/tabler-icons.min.css">
-  <link rel="stylesheet" href="style.css?v=20261018-sessions2" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap">
+  <link rel="stylesheet" href="main.css">
 </head>
-<body class="autism-mock-page">
-  <header class="site-header">
-    <a href="index.html" class="brand"><img src="assets/logo-psychologie-transparent.png" alt="" class="brand-logo"><span class="brand-copy"><strong>Erika Casa</strong><small>Psychologue du travail</small></span></a>
-    <button class="menu-button" id="menuButton" aria-label="Ouvrir le menu"><i class="ti ti-menu-2" aria-hidden="true"></i></button>
-    <nav class="nav" id="nav"><a href="index.html">Accueil</a><a href="index.html#accompagnements">Accompagnements</a><a href="index.html#apropos">À propos</a><a href="articles.html">Articles</a><a href="#cours-collectifs">Cours collectifs</a><a class="nav-cta" href="#contact">Contact</a></nav>
-  </header>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
 
-  <main class="autism-mock">
-    <section class="autism-mock-hero autism-mock-hero-noimage">
-      <div class="autism-mock-hero-copy">
-        <p class="eyebrow">Autisme & emploi</p>
-        <h1>Un accompagnement vers l’emploi adapté à votre parcours</h1>
-        <p>Pour construire un projet professionnel qui vous correspond, en tenant compte de vos forces, de vos besoins et de votre rythme.</p>
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Navigation principale">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-psychologie-transparent.png" alt="" width="44" height="44">
+      <span><strong>Erika Casa</strong><small>Psychologue du travail · Manage</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#accompagnements">Accompagnements</a></li>
+      <li><a href="autisme-emploi.html" aria-current="page">Autisme &amp; emploi</a></li>
+      <li><a href="index.html#a-propos">À propos</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-primary nav-cta" href="index.html#rendez-vous">Prendre rendez-vous</a>
+    <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow">Autisme &amp; emploi</span>
+        <h1>Un accompagnement vers l'emploi adapté à votre parcours.</h1>
+        <p class="lead">Pour construire un projet professionnel qui vous correspond, en tenant compte de vos forces, de vos besoins et de votre rythme.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#contact">Prendre contact <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
-          <a class="button secondary" href="#cours-collectifs">Cours collectifs <i class="ti ti-arrow-down" aria-hidden="true"></i></a>
+          <a class="btn btn-primary" href="#cours-collectifs">Cours collectifs</a>
+          <a class="btn btn-ghost" href="#individuel">Accompagnement individuel</a>
         </div>
       </div>
-    </section>
+      <img src="assets/illustration-autisme-emploi.webp" alt="Illustration d'un accompagnement vers l'emploi" width="640" height="480">
+    </div>
+  </section>
 
-    <section class="autism-course-section" id="cours-collectifs" aria-labelledby="cours-collectifs-title">
-      <div class="autism-course-shell">
-        <div class="autism-course-heading">
-          <div class="autism-course-intro">
-            <p class="eyebrow">Cours collectifs · Deuxième session</p>
-            <h2 id="cours-collectifs-title">Un groupe bienveillant pour avancer ensemble.</h2>
-            <p>Des cours collectifs pour adultes avec autisme, adaptés à vos besoins et à votre rythme, afin de vous accompagner dans vos démarches professionnelles.</p>
-          </div>
-          <div class="autism-course-time">
-            <span class="autism-course-time-label" id="courseWeekdayLabel">Mercredi après-midi</span>
-            <strong id="courseHeadlineHours">14 h – 16 h</strong>
-            <span>Horaire pouvant être adapté si besoin</span>
-          </div>
-        </div>
-
-        <div class="autism-course-columns">
-          <article class="autism-course-panel">
-            <p class="autism-course-panel-index">01 / Pour qui ?</p>
-            <h3>À qui s’adressent ces groupes ?</h3>
-            <ul class="autism-course-list">
-              <li>Aux personnes en recherche d’emploi</li>
-              <li>À celles qui s’interrogent sur leur orientation professionnelle</li>
-              <li>À celles qui se questionnent après une ou plusieurs expériences professionnelles difficiles</li>
-            </ul>
-            <p class="autism-course-panel-note">Ouvert aux adultes disposant d’une reconnaissance de handicap.</p>
-          </article>
-          <article class="autism-course-panel">
-            <p class="autism-course-panel-index">02 / Ateliers collectifs</p>
-            <h3>Ce que nous pouvons travailler</h3>
-            <p>Les thématiques sont adaptées aux profils des participants :</p>
-            <ul class="autism-course-list">
-              <li>Les habiletés sociales</li>
-              <li>Les fonctions exécutives</li>
-              <li>La gestion émotionnelle</li>
-            </ul>
-            <p class="autism-course-panel-note">Un accompagnement par une psychologue du travail et job coach : écoute bienveillante, soutien personnalisé et progression pas à pas.</p>
-          </article>
-        </div>
-
-        <div class="autism-course-calendar" aria-labelledby="autism-course-calendar-title">
-          <div class="autism-course-calendar-heading">
-            <div>
-              <p class="eyebrow">Calendrier</p>
-              <h3 id="autism-course-calendar-title">Les six dates prévues</h3>
-            </div>
-            <span id="courseCalendarTime">Le mercredi, de 14 h à 16 h</span>
-          </div>
-          <ol class="autism-course-dates" id="courseDatesList">
-            <li><time class="autism-course-date-inner" datetime="2026-11-25" aria-label="mercredi 25 novembre 2026, 14 h à 16 h"><span class="autism-course-date-weekday">mercredi</span><span class="autism-course-date-day">25</span><span class="autism-course-date-month">novembre</span><span class="autism-course-date-year">2026</span><span class="autism-course-date-hours">14 h – 16 h</span></time></li>
-            <li><time class="autism-course-date-inner" datetime="2026-12-02" aria-label="mercredi 02 décembre 2026, 14 h à 16 h"><span class="autism-course-date-weekday">mercredi</span><span class="autism-course-date-day">02</span><span class="autism-course-date-month">décembre</span><span class="autism-course-date-year">2026</span><span class="autism-course-date-hours">14 h – 16 h</span></time></li>
-            <li><time class="autism-course-date-inner" datetime="2026-12-09" aria-label="mercredi 09 décembre 2026, 14 h à 16 h"><span class="autism-course-date-weekday">mercredi</span><span class="autism-course-date-day">09</span><span class="autism-course-date-month">décembre</span><span class="autism-course-date-year">2026</span><span class="autism-course-date-hours">14 h – 16 h</span></time></li>
-            <li><time class="autism-course-date-inner" datetime="2026-12-16" aria-label="mercredi 16 décembre 2026, 14 h à 16 h"><span class="autism-course-date-weekday">mercredi</span><span class="autism-course-date-day">16</span><span class="autism-course-date-month">décembre</span><span class="autism-course-date-year">2026</span><span class="autism-course-date-hours">14 h – 16 h</span></time></li>
-            <li><time class="autism-course-date-inner" datetime="2027-01-06" aria-label="mercredi 06 janvier 2027, 14 h à 16 h"><span class="autism-course-date-weekday">mercredi</span><span class="autism-course-date-day">06</span><span class="autism-course-date-month">janvier</span><span class="autism-course-date-year">2027</span><span class="autism-course-date-hours">14 h – 16 h</span></time></li>
-            <li><time class="autism-course-date-inner" datetime="2027-01-13" aria-label="mercredi 13 janvier 2027, 14 h à 16 h"><span class="autism-course-date-weekday">mercredi</span><span class="autism-course-date-day">13</span><span class="autism-course-date-month">janvier</span><span class="autism-course-date-year">2027</span><span class="autism-course-date-hours">14 h – 16 h</span></time></li>
-          </ol>
-          <p class="autism-course-reassurance"><span>Groupe à taille humaine</span><span>Respect du rythme de chacun</span><span>Confidentialité garantie</span></p>
-        </div>
-
-        <div class="autism-course-contact">
-          <div>
-            <p class="eyebrow">Informations & inscriptions</p>
-            <h3>Intéressé·e ? Prenons le temps d’échanger.</h3>
-            <p>Voyons ensemble si ce projet correspond à vos besoins.</p>
-            <address>Grand’Rue 56 · 7170 Manage</address>
-          </div>
-          <div class="autism-course-actions">
-            <a class="button primary" href="mailto:erika.casa.pro@hotmail.com?subject=Informations%20et%20inscription%20aux%20cours%20collectifs">Demander des informations <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
-            <a class="button secondary" href="tel:+32472376785">Appeler le 0472 37 67 85</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="autism-mock-audience" id="pour-qui">
-      <div class="autism-mock-audience-intro">
-        <p class="eyebrow">Pour qui ?</p>
+  <section class="tint">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow">Pour qui ?</span>
         <h2>Avancer dans votre parcours professionnel.</h2>
-        <p>Cet accompagnement s’adresse aux adultes avec autisme ainsi qu’aux personnes disposant d’une reconnaissance de handicap qui souhaitent :</p>
+        <p>Cet accompagnement s'adresse aux adultes avec autisme ainsi qu'aux personnes disposant d'une reconnaissance de handicap qui souhaitent :</p>
+        <ul class="checklist">
+          <li>Trouver un emploi</li>
+          <li>Construire ou clarifier leur projet professionnel</li>
+          <li>Réfléchir à une réorientation</li>
+          <li>Retrouver confiance après des expériences difficiles</li>
+          <li>Développer leurs compétences pour l'insertion ou le maintien dans l'emploi</li>
+        </ul>
       </div>
-      <div class="autism-mock-audience-grid">
-        <article class="autism-mock-mini"><span class="visual-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 12h18"/><path d="M10 12v2h4v-2"/></svg></span><strong>Trouver un emploi</strong></article>
-        <article class="autism-mock-mini"><span class="visual-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><strong>Construire ou clarifier votre projet professionnel</strong></article>
-        <article class="autism-mock-mini"><span class="visual-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-15.5-2"/><path d="M4 5v4h4"/><path d="M4 13a8 8 0 0 0 15.5 2"/><path d="M20 19v-4h-4"/></svg></span><strong>Réfléchir à une réorientation</strong></article>
-        <article class="autism-mock-mini"><span class="visual-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12.6 12 20l-7.5-7.4A5 5 0 0 1 12 6a5 5 0 0 1 7.5 6.6z"/><path d="M9 11l2 2 4-4"/></svg></span><strong>Retrouver confiance après des expériences difficiles</strong></article>
-        <article class="autism-mock-mini"><span class="visual-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10h4v10"/><path d="M10 20V4h4v16"/><path d="M16 20v-7h4v7"/><path d="M3 20h18"/></svg></span><strong>Développer vos compétences pour l’insertion ou le maintien dans l’emploi</strong></article>
+      <div class="reveal" id="individuel">
+        <span class="eyebrow">Accompagnement individuel</span>
+        <h2>Un soutien personnalisé.</h2>
+        <p>Les séances individuelles permettent d'aborder votre situation de manière personnalisée et confidentielle. Nous travaillons ensemble sur vos objectifs, à votre rythme.</p>
+        <ul class="tags">
+          <li>Projet professionnel</li><li>Forces et compétences</li><li>Recherche d'emploi</li>
+          <li>Confiance en soi</li><li>Entretiens d'embauche</li><li>Adaptation au monde du travail</li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="autism-mock-formats" aria-label="Formats d'accompagnement">
-      <article class="autism-mock-feature">
-        <div class="autism-mock-feature-copy">
-          <p class="eyebrow">Accompagnement individuel</p>
-          <h2>Un soutien personnalisé</h2>
-          <p>Les séances individuelles permettent d’aborder votre situation de manière personnalisée et confidentielle. Nous travaillons ensemble sur vos objectifs, à votre rythme.</p>
-          <ul class="autism-mock-checks">
-            <li>Élaboration d’un projet professionnel</li>
-            <li>Identification de vos forces et compétences</li>
-            <li>Préparation à la recherche d’emploi</li>
-            <li>Confiance en soi et affirmation de ses besoins</li>
-            <li>Préparation aux entretiens d’embauche</li>
-            <li>Adaptation aux exigences du monde du travail</li>
-          </ul>
-        </div>
-        <img src="assets/illustration-autisme-individuel.webp?v=20261007-hq2" alt="Accompagnement individuel autour du projet professionnel">
-      </article>
-
-      <article class="autism-mock-feature autism-mock-feature-warm">
-        <div class="autism-mock-feature-copy">
-          <p class="eyebrow">Ateliers & cours collectifs</p>
-          <h2>Échanger, apprendre et progresser ensemble</h2>
-          <p>Des ateliers en petits groupes, dans un espace sécurisé et bienveillant, pour développer des compétences concrètes et échanger avec d’autres personnes aux réalités similaires.</p>
-          <ul class="autism-mock-checks">
+  <section id="cours-collectifs">
+    <div class="wrap">
+      <div class="course-band reveal">
+        <div>
+          <span class="eyebrow">Cours collectifs</span>
+          <h2>Un groupe bienveillant pour avancer ensemble.</h2>
+          <p>Des ateliers en petits groupes, dans un espace sécurisé et bienveillant, pour développer des compétences concrètes et échanger avec d'autres personnes aux réalités similaires.</p>
+          <ul class="checklist">
             <li>Habiletés sociales dans la sphère professionnelle</li>
             <li>Fonctions exécutives et organisation</li>
             <li>Gestion émotionnelle</li>
             <li>Communication au travail</li>
-            <li>Connaissance de soi et de ses compétences</li>
-            <li>Stratégies facilitant l’insertion professionnelle</li>
+            <li>Connaissance de soi et stratégies d'insertion</li>
           </ul>
-          <a class="autism-course-inline-link" href="#cours-collectifs">Découvrir la prochaine session <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          <ul class="tags">
+            <li>Groupe à taille humaine</li><li>Respect du rythme de chacun</li><li>Confidentialité garantie</li>
+          </ul>
+          <div class="hero-actions"><a class="btn btn-primary" href="index.html#rendez-vous">S'inscrire ou poser une question</a></div>
         </div>
-        <img src="assets/illustration-autisme-collectif.webp?v=20261007-hq2" alt="Atelier collectif en petit groupe autour des compétences professionnelles">
-      </article>
-    </section>
-
-
-    <section class="autism-mock-tools">
-      <div class="autism-mock-tools-copy">
-        <p class="eyebrow">Outils concrets</p>
-        <h2>Des outils concrets pour avancer</h2>
-        <p>Afin de favoriser une progression adaptée à chaque situation, différents outils peuvent être proposés :</p>
-      </div>
-      <div class="autism-mock-tools-visual">
-        <img src="assets/illustration-autisme-outils.webp?v=20261007-hq2" alt="Outils pour l’emploi : CV, lettre de motivation et cartographie des compétences">
-      </div>
-      <div class="autism-mock-tools-grid">
-        <div><span class="tool-tabler-icon" aria-hidden="true"><i class="ti ti-file-cv"></i></span><strong>Création ou amélioration du CV</strong></div>
-        <div><span class="tool-tabler-icon" aria-hidden="true"><i class="ti ti-file-description"></i></span><strong>Rédaction de lettres de motivation</strong></div>
-        <div><span class="tool-tabler-icon" aria-hidden="true"><i class="ti ti-binary-tree"></i></span><strong>Mind mapping des forces et difficultés</strong></div>
-        <div><span class="tool-tabler-icon" aria-hidden="true"><i class="ti ti-compass"></i></span><strong>Évaluation des intérêts professionnels</strong></div>
-        <div><span class="tool-tabler-icon" aria-hidden="true"><i class="ti ti-message-circle-user"></i></span><strong>Préparation aux entretiens</strong></div>
-        <div><span class="tool-tabler-icon" aria-hidden="true"><i class="ti ti-search"></i></span><strong>Recherche de stages de découverte</strong></div>
-        <div><span class="tool-tabler-icon" aria-hidden="true"><i class="ti ti-building-community"></i></span><strong>Exploration d’environnements professionnels compatibles</strong></div>
-      </div>
-    </section>
-
-    <section class="autism-mock-closing" id="contact">
-      <div class="autism-mock-closing-copy">
-        <p class="eyebrow">Une expertise au service de votre projet</p>
-        <h2>Parce que votre potentiel mérite d’être reconnu</h2>
-        <p>Mon approche repose sur une double expertise en psychologie du travail et en accompagnement des personnes avec autisme. L’objectif est de vous aider à mieux comprendre votre fonctionnement, à valoriser vos compétences et à développer des stratégies adaptées pour évoluer dans le monde professionnel avec davantage de confiance et de sérénité.</p>
-        <div class="autism-mock-values">
-          <span>Écoute bienveillante</span><span>Respect de votre rythme</span><span>Soutien personnalisé</span>
+        <div>
+          <h3>Calendrier de la session</h3>
+          <ul class="course-dates" data-courses data-show-past="1" aria-live="polite">
+            <li class="skeleton"></li><li class="skeleton"></li><li class="skeleton"></li><li class="skeleton"></li>
+          </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap split">
+      <img class="reveal" src="assets/illustration-autisme-outils.webp" alt="Illustration d'outils d'accompagnement" loading="lazy" width="640" height="480">
+      <div class="reveal">
+        <span class="eyebrow">Outils concrets</span>
+        <h2>Des outils concrets pour avancer.</h2>
+        <ul class="checklist">
+          <li>Création ou amélioration du CV</li>
+          <li>Rédaction de lettres de motivation</li>
+          <li>Mind mapping des forces et difficultés</li>
+          <li>Évaluation des intérêts professionnels</li>
+          <li>Préparation aux entretiens</li>
+          <li>Recherche de stages de découverte</li>
+          <li>Exploration d'environnements professionnels compatibles</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow">Une double expertise</span>
+        <h2>Parce que votre potentiel mérite d'être reconnu.</h2>
+        <p>Mon approche repose sur une double expertise en psychologie du travail et en accompagnement des personnes avec autisme. L'objectif : vous aider à mieux comprendre votre fonctionnement, valoriser vos compétences et développer des stratégies adaptées pour évoluer dans le monde professionnel avec davantage de confiance et de sérénité.</p>
+      </div>
+      <img class="reveal" src="assets/illustration-autisme-individuel.webp" alt="Illustration d'un accompagnement individuel" loading="lazy" width="640" height="480">
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <span class="eyebrow">Informations &amp; inscriptions</span>
+        <h2>Prenons le temps d'échanger.</h2>
+        <p>Voyons ensemble si cet accompagnement correspond à vos besoins. Grand'Rue 56 · 7170 Manage.</p>
         <div class="hero-actions">
-          <a class="button primary" href="tel:+32472376785">Appeler</a>
-          <a class="button secondary" href="sms:+32472376785">Envoyer un message</a>
-          <a class="button secondary" href="mailto:erika.casa.pro@hotmail.com">E-mail</a>
+          <a class="btn btn-primary" href="index.html#rendez-vous">Demander des informations</a>
+          <a class="btn btn-ghost" href="tel:+32472376785">Appeler le 0472 37 67 85</a>
         </div>
       </div>
-      <div class="autism-mock-closing-card">
-        <span>Mon potentiel</span>
-        <span>Ma place</span>
-        <span>Mon avenir</span>
-      </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
 
-  <footer style="position:relative;padding-bottom:78px;"><div class="footer-brand"><img src="assets/logo-psychologie-transparent.png" alt=""><div><strong>Erika Casa</strong><p>Psychologue du travail · Manage</p><p>TVA BE1033.020.603</p></div></div><div class="footer-links"><a href="index.html#accompagnements">Accompagnements</a><a href="autisme-emploi.html">Autisme & emploi</a><a href="articles.html">Articles</a><a href="index.html#contact">Contact</a><a href="mentions-legales.html">Mentions légales</a></div><p class="footer-credit">Site créé par <a href="https://zanksolutions.be/#services" target="_blank" rel="noopener">ZANK Solutions</a><span class="footer-credit-details"> · TVA BE1033.509.066</span></p></footer>
-  <script type="module" src="app.js"></script>
-  <script type="module" src="course-dates-public.js?v=20261018-sessions2"></script>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Erika Casa</h4>
+        <p>Psychologue du travail à Manage.<br>Stress, burnout, réorientation, autisme &amp; emploi.</p>
+        <p>Grand'Rue 56, 7170 Manage<br>TVA BE1033.020.603</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html#accompagnements">Accompagnements</a></li>
+          <li><a href="autisme-emploi.html">Autisme &amp; emploi</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+32472376785">+32 472 37 67 85</a></li>
+          <li><a href="mailto:erika.casa.pro@hotmail.com">erika.casa.pro@hotmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Erika Casa</span>
+      <span>Site créé par ZANK Solutions</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-ghost" href="tel:+32472376785">Appeler</a>
+  <a class="btn btn-primary" href="index.html#rendez-vous">Rendez-vous</a>
+</div>
+
+<script type="module" src="site.js"></script>
 </body>
 </html>

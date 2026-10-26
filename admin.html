@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Administration | Erika Casa</title>
+  <link rel="icon" href="assets/logo-psychologie-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap">
+  <link rel="stylesheet" href="admin-panel.css">
+</head>
+<body>
+
+<!-- Connexion -->
+<main class="login" id="login-view" hidden>
+  <form class="login-card" id="login-form">
+    <img src="assets/logo-psychologie-transparent.png" alt="" width="56" height="56">
+    <h1>Bonjour Erika</h1>
+    <p>Connectez-vous pour gérer vos articles et vos cours collectifs.</p>
+    <label>E-mail<input type="email" id="login-email" autocomplete="username" required></label>
+    <label>Mot de passe<input type="password" id="login-password" autocomplete="current-password" required></label>
+    <button class="btn primary" type="submit">Se connecter</button>
+    <button class="link" type="button" id="forgot">Mot de passe oublié ?</button>
+    <p class="form-msg" id="login-msg" role="status"></p>
+  </form>
+</main>
+
+<!-- Application -->
+<div class="app" id="app-view" hidden>
+  <aside class="sidebar">
+    <div class="brand"><img src="assets/logo-psychologie-transparent.png" alt="" width="36" height="36"><span>Erika Casa<small>Administration</small></span></div>
+    <nav>
+      <button class="tab" data-tab="dashboard" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"/></svg>Accueil</button>
+      <button class="tab" data-tab="articles"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Articles</button>
+      <button class="tab" data-tab="courses"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Cours collectifs</button>
+    </nav>
+    <div class="sidebar-foot">
+      <a href="index.html" target="_blank" rel="noopener">Voir le site ↗</a>
+      <button class="link" id="logout">Se déconnecter</button>
+    </div>
+  </aside>
+
+  <main class="content">
+    <!-- Accueil -->
+    <section class="panel" data-panel="dashboard">
+      <header class="panel-head"><div><h1>Bonjour Erika 👋</h1><p>Voici l'état de votre site.</p></div></header>
+      <div class="stats">
+        <div class="stat"><span id="stat-published">–</span>articles publiés</div>
+        <div class="stat"><span id="stat-drafts">–</span>brouillons</div>
+        <div class="stat"><span id="stat-next">–</span>prochaine séance</div>
+      </div>
+      <div class="quick">
+        <button class="quick-card" data-go="new-article"><b>✍️ Écrire un article</b><span>Rédiger, ajouter une photo et publier.</span></button>
+        <button class="quick-card" data-go="courses"><b>📅 Modifier les dates des cours</b><span>Ajouter, déplacer ou supprimer une séance.</span></button>
+      </div>
+    </section>
+
+    <!-- Articles : liste -->
+    <section class="panel" data-panel="articles" hidden>
+      <header class="panel-head">
+        <div><h1>Articles</h1><p>Les articles publiés apparaissent immédiatement sur le site.</p></div>
+        <button class="btn primary" data-go="new-article">+ Nouvel article</button>
+      </header>
+      <div class="toolbar">
+        <input type="search" id="article-search" placeholder="Rechercher un article…" aria-label="Rechercher">
+        <div class="seg" role="group" aria-label="Filtrer">
+          <button data-status="all" aria-pressed="true">Tous</button>
+          <button data-status="published" aria-pressed="false">Publiés</button>
+          <button data-status="draft" aria-pressed="false">Brouillons</button>
+        </div>
+      </div>
+      <ul class="list" id="article-list"><li class="empty">Chargement…</li></ul>
+    </section>
+
+    <!-- Articles : éditeur -->
+    <section class="panel" data-panel="editor" hidden>
+      <header class="panel-head">
+        <div><button class="link back" data-go="articles">← Articles</button><h1 id="editor-title">Nouvel article</h1></div>
+        <div class="head-actions">
+          <button class="btn" id="save-draft" type="button">Enregistrer le brouillon</button>
+          <button class="btn primary" id="publish" type="button">Publier</button>
+        </div>
+      </header>
+      <div class="editor">
+        <form class="editor-form" id="article-form" novalidate>
+          <input type="hidden" id="article-id">
+          <label class="big">Titre<input id="title" required maxlength="160" placeholder="Ex. : Burnout, reconnaître les signes"></label>
+          <div class="grid2">
+            <label>Thème
+              <input id="category" list="category-list" required placeholder="Ex. : Burnout">
+              <datalist id="category-list"></datalist>
+            </label>
+            <label>Date de publication<input type="date" id="date" required></label>
+          </div>
+          <label>Résumé <small>(affiché sur la carte de l'article, 1 à 2 phrases)</small><textarea id="excerpt" rows="2" maxlength="300"></textarea><span class="count" data-for="excerpt"></span></label>
+          <div class="drop" id="drop" tabindex="0" role="button" aria-label="Ajouter une photo">
+            <input type="file" id="image" accept="image/*" hidden>
+            <img id="image-preview" alt="" hidden>
+            <span id="drop-text">📷 Glissez une photo ici ou <u>cliquez pour choisir</u> (max 8 Mo)</span>
+            <button type="button" class="link" id="image-remove" hidden>Retirer la photo</button>
+          </div>
+          <label>Description de la photo <small>(pour l'accessibilité et Google)</small><input id="image-alt"></label>
+          <label>Texte de l'article <small>(laissez une ligne vide entre deux paragraphes)</small><textarea id="body" rows="14"></textarea></label>
+          <p class="hint" id="reading-time">Temps de lecture estimé : –</p>
+          <details>
+            <summary>Source (facultatif)</summary>
+            <div class="grid2">
+              <label>Nom de la source<input id="source-label"></label>
+              <label>Lien de la source<input type="url" id="source-url" placeholder="https://"></label>
+            </div>
+          </details>
+          <button type="button" class="link danger" id="delete-article" hidden>Supprimer cet article</button>
+        </form>
+        <aside class="preview" aria-label="Aperçu">
+          <p class="preview-label">Aperçu sur le site</p>
+          <article class="card-preview">
+            <div class="thumb"><img id="pv-img" alt="" hidden></div>
+            <div class="pv-body">
+              <span class="pv-meta" id="pv-meta"></span>
+              <h3 id="pv-title">Titre de l'article</h3>
+              <p id="pv-excerpt">Le résumé apparaîtra ici.</p>
+            </div>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Cours collectifs -->
+    <section class="panel" data-panel="courses" hidden>
+      <header class="panel-head">
+        <div><h1>Cours collectifs</h1><p>Les dates s'affichent sur la page Autisme &amp; emploi et sur l'accueil.</p></div>
+        <button class="btn primary" id="save-courses">Enregistrer les dates</button>
+      </header>
+      <div class="toolbar">
+        <button class="btn" id="add-session">+ Ajouter une séance</button>
+        <div class="bulk">
+          <span>Même horaire pour toutes :</span>
+          <input type="time" id="bulk-start" value="14:00" aria-label="Début">
+          <span>–</span>
+          <input type="time" id="bulk-end" value="16:00" aria-label="Fin">
+          <button class="btn" id="apply-bulk">Appliquer</button>
+        </div>
+      </div>
+      <ul class="sessions" id="sessions"></ul>
+      <p class="hint">Les séances passées restent visibles (grisées) sur le site tant que vous ne les supprimez pas.</p>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="admin-panel.js"></script>
+</body>
+</html>

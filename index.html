@@ -1,69 +1,327 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="fr-BE">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Erika Casa, psychologue du travail à Manage. Accompagnement autour du stress, du burnout, de la surcharge mentale, du bien-être au travail et de la réorientation professionnelle." />
-  <title>Erika Casa | Psychologue du travail à Manage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Psychologue du travail à Manage – Burnout, stress, réorientation | Erika Casa</title>
+  <meta name="description" content="Erika Casa, psychologue du travail à Manage (Hainaut). Consultations pour le stress, le burnout, la réorientation professionnelle et l'accompagnement vers l'emploi des adultes autistes. Prise de rendez-vous rapide.">
+  <link rel="canonical" href="https://casapsy.be/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_BE">
+  <meta property="og:title" content="Erika Casa – Psychologue du travail à Manage">
+  <meta property="og:description" content="Stress, burnout, réorientation, autisme & emploi : un accompagnement bienveillant et concret, à votre rythme.">
+  <meta property="og:url" content="https://casapsy.be/">
+  <meta property="og:image" content="https://casapsy.be/assets/erika-casa.jpeg">
+  <meta name="theme-color" content="#2f4a41">
+  <link rel="icon" href="assets/logo-psychologie-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261016-botanical-responsive-v3" />
-  <style>
-    .footer-credit{position:absolute;right:clamp(20px,7vw,110px);bottom:16px;margin:0;text-align:right;color:#c8d0cd;font-size:.82rem;white-space:nowrap}.footer-credit a{font-weight:700}.footer-credit-details{display:inline}@media(max-width:760px){.footer-credit-details{display:none}.footer-credit{white-space:normal}}
-  </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.49.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap">
+  <link rel="stylesheet" href="main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["ProfessionalService", "LocalBusiness"],
+    "@id": "https://casapsy.be/#cabinet",
+    "name": "Erika Casa – Psychologue du travail",
+    "url": "https://casapsy.be/",
+    "image": "https://casapsy.be/assets/erika-casa.jpeg",
+    "logo": "https://casapsy.be/assets/logo-psychologie-transparent.png",
+    "telephone": "+32472376785",
+    "email": "erika.casa.pro@hotmail.com",
+    "vatID": "BE1033020603",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Grand'Rue 56",
+      "postalCode": "7170",
+      "addressLocality": "Manage",
+      "addressRegion": "Hainaut",
+      "addressCountry": "BE"
+    },
+    "areaServed": ["Manage", "La Louvière", "Seneffe", "Morlanwelz", "Binche", "Charleroi", "Hainaut"],
+    "founder": {
+      "@type": "Person",
+      "name": "Erika Casa",
+      "jobTitle": "Psychologue du travail",
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Université de Mons (UMONS)" },
+        { "@type": "CollegeOrUniversity", "name": "Université libre de Bruxelles (ULB)" }
+      ]
+    },
+    "knowsAbout": ["Psychologie du travail", "Burnout", "Stress au travail", "Réorientation professionnelle", "Autisme et emploi", "Job coaching"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Comment prendre rendez-vous ?", "acceptedAnswer": { "@type": "Answer", "text": "Par téléphone au 0472 37 67 85, par e-mail ou via le formulaire de demande de rendez-vous du site." } },
+      { "@type": "Question", "name": "Où se trouve le cabinet ?", "acceptedAnswer": { "@type": "Answer", "text": "Le cabinet se trouve Grand'Rue 56, 7170 Manage." } },
+      { "@type": "Question", "name": "Ce qui est dit en consultation reste-t-il confidentiel ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. La psychologue est tenue au secret professionnel." } }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header class="site-header">
-    <a href="#accueil" class="brand"><img src="assets/logo-psychologie-transparent.png" alt="" class="brand-logo"><span class="brand-copy"><strong>Erika Casa</strong><small>Psychologue du travail</small></span></a>
-    <button class="menu-button" id="menuButton" aria-label="Ouvrir le menu"><i class="ti ti-menu-2" aria-hidden="true"></i></button>
-    <nav class="nav" id="nav"><a href="#accueil">Accueil</a><a href="#accompagnements">Accompagnements</a><a href="#apropos">À propos</a><a href="articles.html">Articles</a><a href="autisme-emploi.html#cours-collectifs">Cours collectifs</a><a class="nav-cta" href="#contact">Contact</a></nav>
-  </header>
-  <main>
-    <section class="hero" id="accueil"><div class="hero-copy"><p class="eyebrow">Psychologue du travail · Manage</p><h1>Retrouver du sens et un meilleur équilibre dans sa vie professionnelle.</h1><p class="lead">Erika Casa accompagne les personnes confrontées à des difficultés psychologiques liées au travail, ainsi que celles qui souhaitent réfléchir à leur avenir ou à une réorientation professionnelle.</p><div class="hero-actions"><a href="#accompagnements" class="button primary">Découvrir les accompagnements</a><a href="#contact" class="button secondary">Contacter Erika Casa</a></div></div><div class="hero-identity"><div class="identity-name">ERIKA<br>CASA</div><div class="identity-logo identity-logo-blended"><img src="assets/logo-psychologie-transparent.png" alt="Logo Erika Casa"></div><p>Psychologue du travail</p></div></section>
-    <section class="section intro-strip"><p>Un espace d’écoute bienveillante et confidentielle pour faire le point, comprendre ce qui se joue dans votre situation professionnelle et avancer à votre rythme.</p></section>
-    <section class="section" id="accompagnements"><div class="section-heading"><p class="eyebrow">Accompagnements</p><h2>Des consultations centrées sur le travail et ses effets sur l’équilibre psychologique.</h2><p>Les accompagnements sont personnalisés en fonction de votre situation, de vos besoins et de votre parcours.</p></div><div class="service-grid">
-        <article class="service-card"><span>01</span><span class="service-icon" aria-hidden="true"><i class="ti ti-brain"></i></span><h3>Stress & surcharge mentale</h3><p>Identifier les facteurs de tension, mieux comprendre leurs effets et retrouver des repères plus soutenables.</p></article>
-        <article class="service-card"><span>02</span><span class="service-icon" aria-hidden="true"><i class="ti ti-battery-2"></i></span><h3>Burnout</h3><p>Mettre des mots sur l’épuisement, reconnaître les signaux d’alerte et être accompagné dans la reconstruction d’un équilibre.</p></article>
-        <article class="service-card"><span>03</span><span class="service-icon" aria-hidden="true"><i class="ti ti-route"></i></span><h3>Réorientation professionnelle</h3><p>Faire le point sur son parcours, clarifier ses priorités et réfléchir à une évolution professionnelle qui a davantage de sens.</p></article>
-        <article class="service-card"><span>04</span><span class="service-icon" aria-hidden="true"><i class="ti ti-heart-handshake"></i></span><h3>Bien-être au travail</h3><p>Comprendre les difficultés rencontrées dans l’environnement professionnel et identifier des pistes d’ajustement adaptées.</p></article>
-        <a class="service-card service-card-link service-card-autism" href="autisme-emploi.html"><span>05</span><span class="service-icon" aria-hidden="true"><i class="ti ti-briefcase"></i></span><h3>Autisme & emploi</h3><p>Un accompagnement individuel et collectif adapté à votre parcours professionnel, vos forces, vos besoins et votre rythme.</p><strong class="service-card-cta"><span>Découvrir maintenant</span><i class="ti ti-arrow-right" aria-hidden="true"></i></strong></a>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Navigation principale">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-psychologie-transparent.png" alt="" width="44" height="44">
+      <span><strong>Erika Casa</strong><small>Psychologue du travail · Manage</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#accompagnements">Accompagnements</a></li>
+      <li><a href="autisme-emploi.html">Autisme &amp; emploi</a></li>
+      <li><a href="index.html#a-propos">À propos</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-primary nav-cta" href="#rendez-vous">Prendre rendez-vous</a>
+    <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Psychologue du travail à Manage</span>
+        <h1>Retrouver du sens et un meilleur <em>équilibre</em> dans votre vie professionnelle.</h1>
+        <p class="lead">Stress, burnout, envie de changer de voie ou recherche d'emploi avec un trouble du spectre de l'autisme : je vous accompagne avec bienveillance, de façon concrète et à votre rythme.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#rendez-vous">Demander un rendez-vous</a>
+          <a class="btn btn-ghost" href="tel:+32472376785">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            0472 37 67 85
+          </a>
+        </div>
+        <ul class="trust">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>Diplômée UMONS &amp; ULB</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Secret professionnel</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Cabinet à Manage</li>
+        </ul>
       </div>
-    </section>
-    <section class="section about about-refined" id="apropos" aria-labelledby="about-refined-title">
-      <svg class="about-botanical about-botanical-left" viewBox="0 0 110 180" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M25 175 C40 151 46 121 57 94 C68 65 79 36 81 7"/><path d="M80 40 C65 30 64 15 77 3 C91 16 91 29 80 40 Z"/><path d="M65 78 C43 77 29 62 27 45 C48 47 61 58 65 78 Z"/><path d="M60 88 C84 82 97 68 102 48 C79 53 66 66 60 88 Z"/><path d="M49 118 C30 118 16 104 11 85 C32 86 46 98 49 118 Z"/><path d="M44 132 C64 126 78 110 83 92 C61 99 49 114 44 132 Z"/><path d="M35 155 C18 152 7 140 5 124 C23 127 34 139 35 155 Z"/></svg>
-      <div class="about-copy">
-        <p class="eyebrow">À propos</p>
-        <h2 id="about-refined-title">Erika Casa,<br><em>psychologue du travail</em></h2>
-        <p class="about-intro">Je suis psychologue du travail, spécialisée dans l’accompagnement des personnes (jeunes et adultes) dans leur parcours professionnel, avec une attention particulière aux personnes ayant un trouble du spectre de l’autisme. Mon approche est bienveillante, concrète et centrée sur vos forces, dans le respect de votre rythme et de vos besoins.</p>
-        <details class="about-more" id="parcours">
-          <summary class="button primary about-more-toggle">En savoir plus sur mon parcours <i class="ti ti-arrow-right" aria-hidden="true"></i></summary>
-          <div class="about-more-content">
-            <p>Erika Casa est diplômée d’un Master en Psychologie du travail à l’Université de Mons et d’un Master en Gestion des risques et du bien-être au travail à l’ULB. Elle accompagne notamment autour du stress, de la prévention du burnout et de la surcharge mentale.</p>
-            <div class="degrees">
-              <div><strong>UMONS</strong><span>Master en Psychologie du travail</span></div>
-              <div><strong>ULB</strong><span>Master en Gestion des risques et du bien-être au travail</span></div>
-            </div>
+      <div class="hero-visual">
+        <div class="hero-photo"><img src="assets/erika-casa-detouree.webp" alt="Erika Casa, psychologue du travail" width="600" height="750" fetchpriority="high"></div>
+        <div class="hero-card">
+          <strong><span class="dot"></span>Cours collectifs</strong>
+          Prochaine séance : <span data-next-course>…</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint" id="accompagnements">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Accompagnements</span>
+          <h2>Des consultations centrées sur le travail et ses effets sur votre équilibre.</h2>
+        </div>
+        <p>Chaque accompagnement est personnalisé selon votre situation, vos besoins et votre parcours.</p>
+      </div>
+      <div class="services">
+        <article class="service reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg></div>
+          <h3>Stress &amp; surcharge mentale</h3>
+          <p>Identifier les facteurs de tension, comprendre leurs effets et retrouver des repères plus soutenables.</p>
+          <a class="more" href="#rendez-vous">Prendre rendez-vous</a>
+        </article>
+        <article class="service reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></svg></div>
+          <h3>Burnout</h3>
+          <p>Mettre des mots sur l'épuisement, reconnaître les signaux d'alerte et reconstruire un équilibre.</p>
+          <a class="more" href="articles/burnout.html">Reconnaître les signes</a>
+        </article>
+        <article class="service reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16 8-2 6-6 2 2-6 6-2z"/></svg></div>
+          <h3>Réorientation professionnelle</h3>
+          <p>Faire le point sur votre parcours, clarifier vos priorités et envisager une évolution qui a plus de sens.</p>
+          <a class="more" href="articles/reorientation.html">En savoir plus</a>
+        </article>
+        <article class="service reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+          <h3>Bien-être au travail</h3>
+          <p>Comprendre les difficultés rencontrées dans votre environnement professionnel et trouver des ajustements adaptés.</p>
+          <a class="more" href="#rendez-vous">Prendre rendez-vous</a>
+        </article>
+        <article class="service featured wide reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+          <h3>Autisme &amp; emploi</h3>
+          <p>Un accompagnement individuel et des cours collectifs pour adultes autistes : projet professionnel, recherche d'emploi, entretiens, confiance en soi. Avec une double expertise de psychologue du travail et de job coach.</p>
+          <a class="more" href="autisme-emploi.html">Découvrir l'accompagnement</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Comment ça se passe ?</span>
+          <h2>Un premier pas simple, sans engagement.</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><h3>Vous prenez contact</h3><p>Par téléphone, e-mail ou via le formulaire. Quelques mots sur votre situation suffisent.</p></div>
+        <div class="step reveal"><h3>Un premier entretien</h3><p>Nous faisons le point ensemble sur votre demande, vos besoins et vos objectifs.</p></div>
+        <div class="step reveal"><h3>Un accompagnement sur mesure</h3><p>Nous avançons pas à pas, à votre rythme, avec des outils concrets adaptés à votre situation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="a-propos">
+    <div class="wrap about-grid">
+      <div class="about-photo reveal"><img src="assets/erika-casa.jpeg" alt="Erika Casa, psychologue du travail" loading="lazy"></div>
+      <div class="reveal">
+        <span class="eyebrow">À propos</span>
+        <h2>Erika Casa, psychologue du travail</h2>
+        <p>Je suis psychologue du travail, spécialisée dans l'accompagnement des personnes (jeunes et adultes) dans leur parcours professionnel, avec une attention particulière aux personnes ayant un trouble du spectre de l'autisme.</p>
+        <p>Mon approche est bienveillante, concrète et centrée sur vos forces, dans le respect de votre rythme et de vos besoins.</p>
+        <div class="diplomas">
+          <div class="diploma"><strong>UMONS</strong><span>Master en Psychologie du travail</span></div>
+          <div class="diploma"><strong>ULB</strong><span>Master en Gestion des risques et du bien-être au travail</span></div>
+        </div>
+        <blockquote>Chaque parcours est unique, et mérite un accompagnement sur mesure.</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="course-band reveal">
+        <div>
+          <span class="eyebrow">Cours collectifs · Autisme &amp; emploi</span>
+          <h2>Un groupe bienveillant pour avancer ensemble.</h2>
+          <p>Des ateliers en petit groupe pour adultes autistes : habiletés sociales, fonctions exécutives, gestion émotionnelle et démarches professionnelles.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="autisme-emploi.html#cours-collectifs">Voir le programme</a>
+            <a class="btn btn-ghost" href="#rendez-vous">S'inscrire</a>
           </div>
-        </details>
+        </div>
+        <ul class="course-dates" data-courses="3" aria-live="polite">
+          <li class="skeleton"></li><li class="skeleton"></li><li class="skeleton"></li>
+        </ul>
       </div>
-      <div class="about-visual about-portrait-stage">
-        <svg class="about-botanical about-botanical-right" viewBox="0 0 110 180" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M25 175 C40 151 46 121 57 94 C68 65 79 36 81 7"/><path d="M80 40 C65 30 64 15 77 3 C91 16 91 29 80 40 Z"/><path d="M65 78 C43 77 29 62 27 45 C48 47 61 58 65 78 Z"/><path d="M60 88 C84 82 97 68 102 48 C79 53 66 66 60 88 Z"/><path d="M49 118 C30 118 16 104 11 85 C32 86 46 98 49 118 Z"/><path d="M44 132 C64 126 78 110 83 92 C61 99 49 114 44 132 Z"/><path d="M35 155 C18 152 7 140 5 124 C23 127 34 139 35 155 Z"/></svg>
-        
-        <div class="about-portrait-shape" aria-hidden="true"></div>
-        <p class="about-portrait-quote">Chaque parcours<br>est unique, et mérite<br>un accompagnement<br>sur mesure.</p>
-        <img class="about-portrait-photo" src="assets/erika-casa-detouree.webp?v=20261016-2" alt="Erika Casa, psychologue du travail, assise avec un carnet de notes" width="1025" height="1535" loading="lazy">
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Articles &amp; ressources</span>
+          <h2>Comprendre pour mieux avancer</h2>
+        </div>
+        <a class="btn btn-ghost" href="articles.html">Tous les articles</a>
       </div>
-    </section>
-    <section class="section home-articles" id="articles"><div class="section-heading home-articles-heading"><div><p class="eyebrow">Articles & ressources</p><h2>Derniers articles</h2></div><a class="button secondary" href="articles.html">Voir tous les articles</a></div><div class="simple-article-list" id="homeDynamicArticles"></div><div class="simple-article-list"><a class="simple-article-link" href="articles/diagnostic-autisme-adulte.html"><span>Un diagnostic, pas une définition</span><span class="simple-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span></a><a class="simple-article-link" href="articles/burnout.html"><span>Burnout : reconnaître les signes d’épuisement</span><span class="simple-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span></a><a class="simple-article-link" href="articles/reorientation.html"><span>Faire le point sur son avenir professionnel</span><span class="simple-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span></a><a class="simple-article-link" href="articles/autisme.html"><span>Autisme : comprendre, respecter et favoriser l’inclusion</span><span class="simple-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span></a></div></section>
-    <section class="section contact-section" id="contact"><div><p class="eyebrow">Contact</p><h2>Vous souhaitez faire le point sur votre situation professionnelle ?</h2><p>Contactez Erika Casa pour échanger sur votre demande et convenir d’un rendez-vous.</p></div><div class="contact-card"><p class="contact-label">Téléphone</p><div class="phone-actions"><a class="contact-action" href="tel:+32472376785">Appeler</a><a class="contact-action secondary-action" href="sms:+32472376785">Envoyer un message</a></div><p class="contact-detail">+32 472 37 67 85</p><p class="contact-label">E-mail</p><p class="contact-value"><a href="mailto:erika.casa.pro@hotmail.com">erika.casa.pro@hotmail.com</a></p><p class="contact-label">Cabinet</p><p class="contact-value">Grand’Rue 56<br>7170 Manage</p></div></section>
-  </main>
-  <footer style="position:relative;padding-bottom:78px;">
-    <div class="footer-brand"><img src="assets/logo-psychologie-transparent.png" alt=""><div><strong>Erika Casa</strong><p>Psychologue du travail · Manage</p><p>TVA BE1033.020.603</p></div></div>
-    <div class="footer-links"><a href="#accompagnements">Accompagnements</a><a href="autisme-emploi.html">Autisme & emploi</a><a href="articles.html">Articles</a><a href="#contact">Contact</a><a href="mentions-legales.html">Mentions légales</a></div>
-    <p class="footer-credit">Site créé par <a href="https://zanksolutions.be/#services" target="_blank" rel="noopener">ZANK Solutions</a><span class="footer-credit-details"> · TVA BE1033.509.066</span></p>
-  </footer>
-  <script type="module" src="app.js"></script>
+      <div class="articles" data-articles="3"></div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="section-head reveal"><div><span class="eyebrow">Questions fréquentes</span><h2>Avant de prendre rendez-vous</h2></div></div>
+      <div class="faq reveal">
+        <details><summary>Comment prendre rendez-vous ?</summary><p>Par téléphone au 0472 37 67 85, par e-mail à erika.casa.pro@hotmail.com, ou via le formulaire ci-dessous. Vous recevrez une réponse pour convenir d'un moment.</p></details>
+        <details><summary>Où se trouve le cabinet ?</summary><p>Grand'Rue 56, 7170 Manage, facilement accessible depuis La Louvière, Seneffe, Morlanwelz et Binche.</p></details>
+        <details><summary>Ce qui est dit en consultation reste-t-il confidentiel ?</summary><p>Oui. La psychologue est tenue au secret professionnel : ce que vous partagez reste entre vous.</p></details>
+        <details><summary>Quel est le tarif d'une séance ?</summary><p>[À compléter par Erika : tarif, durée de la séance, éventuels remboursements par la mutuelle.]</p></details>
+        <details><summary>Faut-il un diagnostic pour l'accompagnement Autisme &amp; emploi ?</summary><p>Les cours collectifs s'adressent aux adultes disposant d'une reconnaissance de handicap. N'hésitez pas à prendre contact pour en parler : nous verrons ensemble ce qui correspond à votre situation.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" id="contact">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <span class="eyebrow">Contact</span>
+        <h2>Vous souhaitez faire le point sur votre situation professionnelle ?</h2>
+        <p>Contactez-moi pour échanger sur votre demande et convenir d'un rendez-vous.</p>
+        <ul class="contact-list">
+          <li><a href="tel:+32472376785"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><small>Téléphone</small>+32 472 37 67 85</span></a></li>
+          <li><a href="mailto:erika.casa.pro@hotmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><span><small>E-mail</small>erika.casa.pro@hotmail.com</span></a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Grand%27Rue+56+7170+Manage" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span><small>Cabinet</small>Grand'Rue 56, 7170 Manage</span></a></li>
+        </ul>
+      </div>
+      <form class="form reveal" id="rendez-vous">
+        <h3>Demande de rendez-vous</h3>
+        <p class="hint">Remplissez ces quelques champs : votre messagerie s'ouvrira avec un message prêt à envoyer.</p>
+        <div class="field">
+          <label for="motif">Motif</label>
+          <select id="motif" name="motif" required>
+            <option>Stress / surcharge mentale</option>
+            <option>Burnout</option>
+            <option>Réorientation professionnelle</option>
+            <option>Bien-être au travail</option>
+            <option>Autisme &amp; emploi – accompagnement individuel</option>
+            <option>Autisme &amp; emploi – cours collectifs</option>
+            <option>Autre demande</option>
+          </select>
+        </div>
+        <div class="field"><label for="nom">Nom et prénom</label><input id="nom" name="nom" autocomplete="name" required></div>
+        <div class="row">
+          <div class="field"><label for="telephone">Téléphone</label><input id="telephone" name="telephone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email"></div>
+        </div>
+        <fieldset class="field">
+          <legend>Vos disponibilités</legend>
+          <div class="chips">
+            <label><input type="checkbox" name="moment" value="matin"><span>Matin</span></label>
+            <label><input type="checkbox" name="moment" value="après-midi"><span>Après-midi</span></label>
+            <label><input type="checkbox" name="moment" value="fin de journée"><span>Fin de journée</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="message">Message (facultatif)</label><textarea id="message" name="message" placeholder="Quelques mots sur votre situation…"></textarea></div>
+        <label class="check"><input type="checkbox" required> J'accepte que ces informations soient utilisées pour répondre à ma demande.</label>
+        <button class="btn btn-primary" type="submit">Préparer ma demande</button>
+        <p class="form-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Erika Casa</h4>
+        <p>Psychologue du travail à Manage.<br>Stress, burnout, réorientation, autisme &amp; emploi.</p>
+        <p>Grand'Rue 56, 7170 Manage<br>TVA BE1033.020.603</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html#accompagnements">Accompagnements</a></li>
+          <li><a href="autisme-emploi.html">Autisme &amp; emploi</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+32472376785">+32 472 37 67 85</a></li>
+          <li><a href="mailto:erika.casa.pro@hotmail.com">erika.casa.pro@hotmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Erika Casa</span>
+      <span>Site créé par ZANK Solutions</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-ghost" href="tel:+32472376785">Appeler</a>
+  <a class="btn btn-primary" href="index.html#rendez-vous">Rendez-vous</a>
+</div>
+
+<script type="module" src="site.js"></script>
 </body>
 </html>
